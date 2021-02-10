@@ -1,0 +1,31 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-02-15 01:54:00 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 01:54:12 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 03:45:28 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 08:44:15 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 08:44:25 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 09:27:00 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 10:18:31 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 10:26:06 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 10:52:05 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 10:52:18 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 11:16:57 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 14:00:26 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 15:41:28 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 15:49:53 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 15:50:07 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 15:50:28 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 15:50:43 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 16:30:34 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 16:30:52 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 16:30:53 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 17:41:34 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 17:41:50 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 18:16:25 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 18:16:37 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 18:17:15 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 18:17:16 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 19:08:31 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 22:52:46 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21
+ERROR - 2020-02-15 22:53:02 --> Severity: Warning --> Invalid argument supplied for foreach() /home/segermizone/public_html/application/views/template/header.php 21

@@ -1,0 +1,24 @@
+89.234.25.15
+idalvinope
+3qS7!KdMy%ye4a1
+sudo su -
+3qS7!KdMy%ye4a1
+cd /var/www/html
+ll
+
+rm -rf update
+mkdir update
+cd update
+mkdir 20
+wget http://redcomm-betatest.com/malik/nestle/20/20.tar.gz
+tar -zxvf 20.tar.gz -C 20/
+cp -rf 20/* ../nestleprofessional_co_id/
+
+
+
+
+
+
+https://rslon-tools-pma.hosting.nestle.com/phpmyadmin/index.php
+idape01
+h4^c4yedtxcJ3M3c

@@ -1,0 +1,21 @@
+[20-May-2020 22:58:32 America/Chicago] PHP Fatal error:  Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at /home/segermizone/public_html/staging/app/Config/Events.php:27) in /home/segermizone/public_html/staging/system/Debug/Exceptions.php:162
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', '/home/segermizo...', 162, Array)
+#1 /home/segermizone/public_html/staging/system/Debug/Exceptions.php(162): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown in /home/segermizone/public_html/staging/system/Debug/Exceptions.php on line 162
+[20-May-2020 22:58:40 America/Chicago] PHP Fatal error:  Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at /home/segermizone/public_html/staging/app/Config/Events.php:27) in /home/segermizone/public_html/staging/system/Debug/Exceptions.php:162
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', '/home/segermizo...', 162, Array)
+#1 /home/segermizone/public_html/staging/system/Debug/Exceptions.php(162): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown in /home/segermizone/public_html/staging/system/Debug/Exceptions.php on line 162
+[20-May-2020 22:58:42 America/Chicago] PHP Fatal error:  Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at /home/segermizone/public_html/staging/app/Config/Events.php:27) in /home/segermizone/public_html/staging/system/Debug/Exceptions.php:162
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Cannot modify h...', '/home/segermizo...', 162, Array)
+#1 /home/segermizone/public_html/staging/system/Debug/Exceptions.php(162): header('HTTP/1.1 500 In...', true, 500)
+#2 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#3 {main}
+  thrown in /home/segermizone/public_html/staging/system/Debug/Exceptions.php on line 162

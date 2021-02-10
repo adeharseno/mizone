@@ -1,0 +1,8 @@
+
+5.2.2 Insecure Deployment: Unpatched Application - UPDATE PHP VERSION DI SERVER
+5.2.4 Web Server Misconfiguration: Directory Listing - UPDATE CONFIG DI SERVER
+5.3.1 Anti-Automation - FALSE POSITIVE FILE NOT FOUND
+5.3.6 Insecure Transport: HSTS not Set - FALSE POSITIVE
+5.3.7 Insecure Transport: Weak SSL Protocol - UPDATE CONFIG DI SERVER
+5.3.8 System Information Leak: External - FALSE POSITIVE FILE NOT FOUND
+5.3.9 Web Server Misconfiguration: Unprotected Directory - FALSE POSITIVE DIRECTORY NOT FOUND

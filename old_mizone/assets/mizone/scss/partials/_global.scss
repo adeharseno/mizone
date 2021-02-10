@@ -1,0 +1,275 @@
+body{
+	margin:0;
+	padding:0;
+	color:$text-color;
+	height: 100%;
+	@include font-roboto;
+	@include font-layout(18, 10);
+	@include breakpoint($W1200){
+		font-size: 16px;
+		line-height: 26px;
+	}
+	@include breakpoint($W768){
+		// font-size: 14px;
+		line-height: 24px;
+	}
+	// @include breakpoint($W768){ padding-bottom: 100px; }
+	// @include breakpoint($W480){ padding-bottom: 80px; }
+	&.noscroll{
+		overflow: hidden;
+	}
+	&.home{
+		background: url('../imgs/home-bg.jpg') center center no-repeat;
+		background-size: cover;
+		@include breakpoint($W576){
+			background-image: url('../imgs/home-bg-mobile.jpg');
+		}
+	}
+	&.product{
+		background: url('../imgs/product-bg.jpg') center center no-repeat;
+		background-size: cover;
+	}
+}
+
+// body.open-nav{
+// 	overflow: hidden;
+// }
+section{ 
+	position: relative; 
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+   	&.current{
+		visibility: visible!important;
+	    z-index: 1;
+	}
+}
+
+#content{
+	overflow-x: hidden;
+	position: relative;
+	height: 100%;
+}
+
+.green{
+	color: $main-color;
+}
+.white{
+	color: #fff!important;
+}
+p{ 
+	@include font-regular;
+	margin-bottom: 28px;
+}
+
+a{ 
+	@include animation(.25s); 
+	color: #000;
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+.flex{
+    @include breakpoint(min-width 576px){	
+		display: flex;
+		.flex-auto{
+			flex: auto;
+		}
+		.flex-initial{
+			flex: initial; 
+		}
+    }
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.strong{
+	@include font-bold;
+}
+
+.btn-area{
+	button,
+	a{
+		line-height: 35px;
+		padding: 0px 20px;
+		min-width: 136px;
+		font-size: 14px;
+		text-align: center;
+		border: none;
+		@include border-radius(50px);
+		background-color: $main-color;
+		display: inline-block;
+		vertical-align: middle;
+		@include animation(.25s);
+		cursor: pointer;
+		// margin-right: 20px;
+		// border: 1px solid $main-color;
+		color: #fff;
+		&.red{
+			background: #f6343f;
+		}		
+		&.green{
+			background: #8ba332;
+		}
+		&:hover{
+			background-color: $main-color;
+			text-decoration: none;
+		}
+	}
+}
+
+.text-main-color{
+	color: $main-color;
+}
+
+.container{
+	width: 100%;
+	max-width: unset;
+	padding: 0px get-ratio(245, 1920); 
+	position: relative;
+	@include breakpoint($W1366){
+		padding: 0px get-ratio(200, 1920); 
+	}
+	@include breakpoint($W980){
+		padding: 0px get-ratio(145, 1920); 
+	}
+}
+
+h1{
+	@include font-bold;
+	@include font-layout(42,14);
+	margin-bottom: 25px;
+	@include breakpoint($W1200){
+		@include font-layout(35,10);
+	}
+	@include breakpoint($W1024){
+		@include font-layout(30,10);
+	}
+	@include breakpoint($W576){
+		@include font-layout(25,10);
+	}
+}
+
+h2{
+	@include font-bold;
+	@include font-layout(36,10);
+	@include breakpoint($W1200){
+		@include font-layout(30,10);
+	}
+	@include breakpoint($W1024){
+		@include font-layout(25,10);
+	}
+	margin-bottom: 20px;
+	&.title{
+		padding-top: 37px;
+	}
+}
+
+h3{
+	@include font-bold;
+	@include font-layout(26,4);
+	margin-bottom: 20px;
+	@include breakpoint($W1024){ @include font-layout(22,4); }
+}
+
+h4{
+	@include font-bold;
+	@include font-layout(48,10);
+	margin-bottom: 20px;
+}
+
+h5{
+	@include font-bold;
+	@include font-layout(48,10);
+	margin-bottom: 20px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $main-color;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $main-color;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $main-color;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $main-color;
+}
+
+.embed-container { 
+	position: relative; 
+	// padding-bottom: 56.25%; 
+	height: 100%; 
+	// max-height: calc(100vh - 200px);
+	overflow: hidden; 
+	max-width: 100%; 
+	iframe, object, embed{
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		width: 100%; 
+		height: 100%;
+	}
+}
+
+.backhome{
+	@include breakpoint((min-width 768px)){
+		display: none!important;
+	}
+	@include breakpoint($W768){
+		@include watermark('../imgs/icons/back.png', 32px, 24px);
+		display: none;
+		position: absolute;
+		top: 14px;
+		right: 30px;
+		font-size: 0px;
+		z-index: 3;
+	}
+}
+
+.socmed-area-main{
+	@include vertical-center-abs;
+	right: 10%;
+	width: 30px;
+	a{
+		display: block;
+		width: 30px;
+		height: 30px;
+		margin-bottom: 10px;
+		background-size: cover;
+		background-position: center center;
+		transition:all .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);    
+		font-size: 0px;
+		z-index: 2;
+		@include breakpoint($W1366){
+			width: 30px;
+			height: 30px;					
+		}
+		&.fb{
+			background-image: url(../imgs/icons/fb-white.png);
+		}
+		&.ig{
+			background-image: url(../imgs/icons/ig-white.png);		}
+		&.tw{
+			background-image: url(../imgs/icons/tw-white.png);
+		}
+		&.yt{
+			background-image: url(../imgs/icons/yt-white.png);
+		}
+	}
+}

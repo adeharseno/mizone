@@ -1,0 +1,170 @@
+$value: 5;
+@mixin mp {
+  @for $i from 0 through 12 {
+  	$value_final : $value * $i;
+  	.mrml#{$value_final} { 
+  		margin-right: $value_final * 1px!important; 
+  		margin-left: $value_final * 1px!important; 
+  	}
+  	.prpl#{$value_final}{
+		padding-right: $value_final * 1px!important;
+		padding-left: $value_final * 1px!important;
+	}
+	.p#{$value_final}{
+		padding: $value_final * 1px!important;
+	}
+	.m#{$value_final}{
+		margin: $value_final * 1px!important;
+	}
+	.mr#{$value_final}{
+		margin-right: $value_final * 1px!important;
+	}
+	.ml#{$value_final}{
+		margin-left: $value_final * 1px!important;
+	}
+	.mt#{$value_final}{
+		margin-top: $value_final * 1px!important;
+	}
+	.mb#{$value_final}{
+		margin-bottom: $value_final * 1px!important;
+	}
+	.pr#{$value_final}{
+		padding-right: $value_final * 1px!important;
+	}
+	.pl#{$value_final}{
+		padding-left: $value_final * 1px!important;
+	}
+	.pt#{$value_final}{
+		padding-top: $value_final * 1px!important;
+	}
+	.pb#{$value_final}{
+		padding-bottom: $value_final * 1px!important;
+	}
+  }
+}
+@include mp;
+
+$break-small-iphone-5: 320px;
+$break-small-iphone-6: 375px;
+
+$break-small: 420px;
+$break-large: 1000px;
+$break-hd: 1600px;
+$break-ultra-hd: 1920px;
+$break-ultra-hd-2: 2560px;
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == handhelds-iphone-5 {
+    @media only screen and (max-width: $break-small-iphone-5) { @content; }
+  }
+  @else if $media == handhelds-iphone-6 {
+    @media only screen and (min-width: $break-small-iphone-5 + 1) and (max-width: $break-small-iphone-6) { @content; }
+  }
+  @else if $media == handhelds-medium-screens {
+    @media only screen and (max-width: $break-large) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) and (max-width: $break-hd - 1){ @content; }
+  }
+  @else if $media == hd-screens {
+    @media only screen and (min-width: $break-hd)  and (max-width: $break-ultra-hd - 1){ @content; }
+  }
+  @else if $media == ultra-hd-screens {
+    @media only screen and (min-width: $break-ultra-hd) and (max-width: $break-ultra-hd-2 - 1) { @content; }
+  }
+  @else if $media == very-ultra-hd-screens {
+    @media only screen and (min-width: $break-ultra-hd-2) { @content; }
+  }
+  @else if $media == landscape {
+  	@media (min-width: 500px) and (max-width: 700px) and (orientation: landscape) { @content; }
+  }
+
+  
+}
+
+.desktop{
+	display: block!important;
+	&.desktop-inline{
+		display: inline-block!important;
+		@include respond-to(handhelds-medium-screens) {
+			display: none!important;
+		}	
+		@include respond-to(landscape) {
+			display: none!important;
+		}	
+	}
+	@include respond-to(handhelds-medium-screens) {
+		display: none!important;
+	}
+	@include respond-to(landscape) {
+		display: none!important;
+	}
+	
+}
+.mobile{
+	display: none!important;
+	&.mobile-inline{
+		display: none!important;
+		@include respond-to(handhelds-medium-screens) {
+			display: inline-block!important;
+		}	
+	}
+	@include respond-to(handhelds-medium-screens) {
+		display: block!important;
+	}
+	@include respond-to(landscape) {
+		display: block!important;
+	}
+}
+
+.w-100 {
+  	width: 100%; 
+}
+.clearfix { 
+	&:after{
+		content: " ";
+		visibility: hidden;
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}
+.datepicker{
+	border-radius: 0;
+	box-shadow: none;
+	> div {
+		visibility: visible;
+		opacity: 1;
+		width: auto;
+		display: block;	
+	}
+	
+}
+.text{
+	&.text-lg{
+		font-size: 30px!important;
+		line-height: 30px!important
+	}
+	&.text-nm{
+		font-size: 20px!important;
+		line-height: 20px!important
+	}
+	&.text-sm{
+		font-size: 12px!important;
+		line-height: 12px!important
+	}
+	&.text-bold{
+		font-weight: bold!important;
+	}
+	&.text-regular{
+		font-weight: normal!important;
+	}
+	&.text-600{
+		font-weight: 600!important;
+	}
+}
