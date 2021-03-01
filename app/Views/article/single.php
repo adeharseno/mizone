@@ -104,10 +104,14 @@
       <?php if(isset($articles) && count($articles) > 0 ): foreach($articles as $index => $article): $value = json_decode_table($article, default_language()); ?>
         <div class="col-12 col-md-4">
           <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
-                <a href="<?= base_url('event').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
+              <div class="card-img" style="background-image: url('<?php echo base_url(image_get_src($value["image"])) ?>');">
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
               </div>
-                <a href="<?= base_url('event').'/'.$value['slug'] ?>" class="link-article">< <= $index === 0 ? 'Sebelumnya' : 'Selanjutnya' => </a>
+              <?php if ($index === 0): ?>
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>" class="link-article">< Sebelumnya</a>
+              <?php else: ?>
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>" class="link-article text-right">Selanjutnya ></a>
+              <?php endif; ?>
           </div>
         </div>
       <?php endforeach; endif; ?>
