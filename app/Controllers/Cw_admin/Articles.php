@@ -2,9 +2,10 @@
 
 use App\Controllers\BaseController;
 
-class Slider extends BaseController {
-	protected $dir = "Cw_admin/contents/slider/";
-	protected $title = "Slider";
+class Articles extends BaseController {
+	protected $dir = "Cw_admin/contents/articles/";
+	protected $title = "Articles";
+	
 	
 	function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
 	{
@@ -13,7 +14,6 @@ class Slider extends BaseController {
 			header('Location: '.base_url(PATH_CW . 'login')); exit();
 		}
 	}
-
 	function _template($location, $data = null)
     {
 
@@ -24,20 +24,20 @@ class Slider extends BaseController {
         $this->template->set_class_name($this->title);
         $this->template->display();
     }
-
+    
 	public function index()
 	{
 		$data = null;
 
 		$where = null;
 		$where["flag != 99"] = null;
-		$data["table"] = $this->db->table("slider")
+		$data["table"] = $this->db->table("articles")
 							->where($where)
+							// ->order_by("order_by asc")
 							->get()->getResultArray();
 
 		$this->_template("table", $data);
 	}
-
 	public function edit($id = '')
 	{
 		switch ($_SERVER["REQUEST_METHOD"]) {
@@ -50,70 +50,64 @@ class Slider extends BaseController {
 			default:
 				echo "REQUEST_METHOD NOT FOUND";
 				break;
-		}	
-		
+		}
 	}	
-
 	public function show($id)
 	{
 		$data["id"] = $id;
 		$data["title_for"] = (!empty($id))?"Edit":"Add";
 		$data["row"] = null;
-		
+
 		if ($id) {
-			$row = $this->db->table("slider")->where("id",$id)->get()->getRowArray();
+			$row = $this->db->table("articles")->where("id",$id)->get()->getRowArray();
 
 			$data["row"] = json_decode_table($row);
-			
 		}
 
 		$this->_template("edit", $data);
 	}
-
 	public function save($id)
 	{
 		// debug_pre($this->input->getPost());exit();
-		// $this->form_validation->set_rules('title[id]', 'Title', 'required');
-	    	    
-        // if ($this->form_validation->run() == FALSE) {
+		// $this->form_validation->set_rules('content[id]', 'Content', 'required');
+		// dd($this->input->getPost()); exit();
+		// $val = $this->validate(['content[id]' => 'required']);
+		
+        // if (!$val) {
         // 	$this->show($id);
     	// }else {
     		$data_post = $this->input->getPost();
-    		// var_dump( json_encode($this->image_path->get_id_array($data_post["content_d"])) );
-    		// var_dump( $data_post["content_d"] );
-    		// dd($data_post);
+			
 			$insert["title"] = json_encode($data_post["title"]);
-			$insert["target_url"] = json_encode($data_post["target_url"]);
-			$insert["bg_d"] = json_encode($this->image_path->get_id_array($data_post["bg_d"]));
-			$insert["content_d"] = json_encode($this->image_path->get_id_array($data_post["content_d"]));
-			$insert["bg_m"] = json_encode($this->image_path->get_id_array($data_post["bg_m"]));
-			$insert["text_m"] = json_encode($this->image_path->get_id_array($data_post["text_m"]));
-			$insert["content_m"] = json_encode($this->image_path->get_id_array($data_post["content_m"]));
-			$insert["video"] = json_encode($this->image_path->get_id_array($data_post["video"]));
-			$insert["video_thumb"] = json_encode($this->image_path->get_id_array($data_post["video_thumb"]));
-			$insert["video_title"] = json_encode($data_post["video_title"]);
-			$insert["video_url"] = json_encode($data_post["video_url"]);
+			$insert["author"] = json_encode($data_post["author"]);
+			$insert["content"] = json_encode($data_post["content"]);
+			$insert["excerpt"] = json_encode($data_post["excerpt"]);
+			$insert["publish_date"] = json_encode($data_post["publish_date"]);
+			$insert["meta_desc"] = json_encode($data_post["meta_desc"]);
+			$insert["image"] = json_encode($this->image_path->get_id_array($data_post["image"]));
 			$insert["flag"] = $data_post["flag"];
-			// var_dump($insert); exit();
+			$insert["updated_at"] = date('Y-m-d H:i:s');
+			// debug_pre($insert);exit();
 			
 			if ($id){
-				$this->db->table("slider")->where("id", $id)->update($insert);
+				$this->db->table("articles")->where("id", $id)->update($insert);
 
 				$this->session->setFlashdata("success_message", "Update Success");
 			}else {
+				$insert["slug"] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data_post["title"]['id'])));
 				$insert["created_at"] = date('Y-m-d H:i:s');
 				$insert["updated_at"] = date('Y-m-d H:i:s');
 
-				$query = $this->db->table("slider")->insert($insert);
+				$query = $this->db->table("articles")->insert($insert);
 
 				$id = $this->db->insertID();
 				$this->session->setFlashdata("success_message", "Save Success");
 			}	
 			
-			header('Location: '.base_url(PATH_CW . 'slider/edit/' . $id)); exit();
+			// redirect(PATH_CW .  'articles/edit/' . $id,'refresh');
+			header('Location: '.base_url(PATH_CW . 'articles/edit/' . $id)); exit();
     	// }
 	}
-
 	public function action($type, $id, $ajax = false)
 	{
 		$set = null;
@@ -131,39 +125,36 @@ class Slider extends BaseController {
 		$where = null;
 		$where["id in (".$id.")"] = null;
 
-		$this->db->table("slider")->where($where)->update($set);
+		$this->db->table("articles")->where($where)->update($set);
+
 		// set_flashdata("success_message", ucwords(__class__) . " saved");
 		$this->session->setFlashdata("success_message", "Update Success");
 
 		if ( $ajax ){
 			$json["success"] = true;
-			$json["redirect"] = "slider";
+			$json["redirect"] = "articles";
 			echo json_encode($json);
 		}else{
-			// redirect(PATH_CW . 'slider');
-			header('Location: '.base_url(PATH_CW . 'slider')); exit();
+			// redirect(PATH_CW . 'articles');
+			header('Location: '.base_url(PATH_CW . 'articles/')); exit();
 		}
 
 	}
-	
 	public function delete()
 	{
 		$id = $this->input->getPost("id");
 		$this->action("delete", $id, true);
 	}
-	
 	public function active()
 	{
 		$id = $this->input->getPost("id");
 		$this->action("active", $id, true);
 	}
-	
 	public function blocked()
 	{
 		$id = $this->input->getPost("id");
 		$this->action("blocked", $id, true);
 	}
-	
 	public function order()
 	{
 		$data = json_decode($this->input->getPost("data"));
@@ -176,10 +167,11 @@ class Slider extends BaseController {
 			$where = null;
 			$where["id in (".$value["id"].")"] = null;
 
-			$this->db->table("slider")->where($where)->update($set);
+			// $this->db->update("articles", $set, $where);
+			$this->db->table("articles")->where($where)->update($set);
 		}
 		$json["success"] = true;
-		$json["redirect"] = "slider";
+		$json["redirect"] = "articles";
 		echo json_encode($json);
 		// $this->action("blocked", $id, true);
 	}

@@ -12,6 +12,15 @@
   <style>body{overflow:auto}.menu-item{display:flex;float:right;margin-right:50px}.menu-item ul{padding-right:20px;padding-left:0}.menu-item ul li{display:inline-block;padding:0 30px;list-style:none;vertical-align:top;font-weight:500;font-size:28px}.menu-item ul li a{color:#fff;transition:all .3s ease}.menu-item ul li a:hover{text-decoration:none;color:#fe5000}.menu-inside{visibility:hidden;opacity:0;height:0;width:0}.menu-inside.active{visibility:visible;opacity:1;height:auto;width:auto}.menu-inside li{display:block}.has-search .form-control-feedback{position:absolute;z-index:2;display:block;width:2.375rem;height:2.375rem;line-height:2.375rem;text-align:center;pointer-events:none;color:#aaa}.form-group.has-search input{background:0 0;border:2px solid #fff;border-radius:8px;color:#fff;font-weight:500;min-width:210px;padding-left:34px}.form-group.has-search input::-webkit-input-placeholder{color:#fff}.form-group.has-search input:-ms-input-placeholder{color:#fff}.form-group.has-search input::placeholder{color:#fff}.nav-bottom{display:none}.section-product{padding:160px 0;background-size:cover;background-position:center;background-repeat:no-repeat;color:#fff;position:relative}.product-showcase{position:absolute;left:0;bottom:-32vh}.btn{font-weight:500}.btn-secondary{background:#f36b21;border-radius:14px!important;letter-spacing:.6px}.btn-secondary:hover{background:#ff7d04;border-color:#ff7d04}.title-main{font-size:72px;text-transform:uppercase}.title-main-bold{font-size:72px;font-weight:700}.title-secondary{font-size:40px;font-weight:400;margin:0}.title-card{position:absolute;bottom:14px;left:14px;right:14px;z-index:1;font-size:36px;font-weight:500;margin:0;color:#fff}.title-footer{color:#fff;background:#1c4094;padding:6px 12px;text-transform:uppercase;display:inline-block;border-radius:14px}.section-product label{font-size:30px;font-weight:400}.section-product p{font-size:20px}.section-article{padding:60px 0;background-size:cover;background-position:top;background-repeat:no-repeat;color:#fff}.card{margin-bottom:25px;background:0 0;border:none}.card-img{width:100%;height:300px;background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;margin-bottom:14px}.card-img:before{content:'';display:block;position:absolute;bottom:0;left:0;right:0;top:0;height:100%;width:100%;-webkit-transition:all .25s ease-in-out;transition:all .25s ease-in-out;z-index:1;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(25%,rgba(0,0,0,0)),color-stop(70%,#1c4094));background-image:linear-gradient(rgba(0,0,0,0) 25%,#1c4094 70%)}.card-content{padding:14px}.link{float:right;color:#fff;font-size:22px}.footer{padding:40px 0;background:#f36b21}.footer ul li{list-style:none;display:inline-block;padding:12px 28px}.footer ul{margin:25px 0;padding:0}.footer p{font-size:20px;color:#fff}
         .main-slider .slider-items .img-fluid {
             height: 102vh!important;
+        } .section-article-single {
+            color: #1c4094;
+        } .section-article-single p {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }.link-article {
+            color: #ff7d04;
+            font-weight: 600;
         }
   </style>
 
@@ -73,180 +82,37 @@
     </div>
   </header>
 
-  <div class="main-menu">
-    <div class="container-mz">
-      <div class="row align-items-center">
-        <div class="col-md-4">
-          <h2 class="title-2">
-            MIZONE
-            <span class="title-iso">ISOTONIC</span>
-          </h2>
-          <h3 class="title-our">OUR PRODUCTS</h3>
+  <div class="section-article-single">
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col mt-5">
+                <h1 class="title-main-bold mt-5"><?= $event['title'] ?></h1>
+                <h5 class="mb-4">Ditulis: <?= date('d F Y', strtotime($event['publish_date'])) ?> |Ditulis oleh: <?= !empty($event['author']) ? $event['author'] : 'mizone' ?></h5>
+            </div>
         </div>
-        <div class="col-md-8">
-          <div class="row">
-            <?php if(isset($products) && count($products) > 0 ): foreach($products as $p): $value = json_decode_table($p, default_language()); ?>
-              <div class="col text-center">
-                <a href="product/<?php echo $p['slug']; ?>" class="product-link">
-                  <img src="<?php echo image_get_src($value["bottle"]) ?>" class="img-fluid product-shade" alt="">
-                </a>
-              </div>
-            <?php endforeach; endif; ?>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-
-  <div class="main-slider slideInLeft animated">
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-      <?php if (!empty($value['target_url'])): ?>
-      <a href="<?= $value['target_url'] ?>">
-      <?php endif; ?>
-        <div class="slider-items" style="background:url(<?php echo image_get_src($value["bg_d"]) ?>) no-repeat center center ; background-size: cover;">
-          <div class="row vh-100">
-            <div class="col-12 align-self-center">
-              <img src="<?php echo image_get_src($value["content_d"]) ?>" class="img-fluid" alt="">
-            </div>
-          </div>
-          <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-            <div class="video-box fadeInDown animated">
-              <img src="<?php echo image_get_src($value["video_thumb"]) ?>" alt="">
-              <a href="#videocontent-<?php echo $value['id']; ?>" data-toggle="modal" class="btn-play-vid">
-                <div class="play-btn">
-                  <div class="arrow-play">
-                    <i class="ico-play"></i>
-                  </div>
-                  <p class="mb-0"><?php echo $value['video_title']; ?></p>
-                </div>
-              </a>
-            </div>
-          <?php endif; ?>
-        </div>
-      <?php if (!empty($value['target_url'])): ?>
-      </a>
-      <?php endif; ?>
-    <?php endforeach; endif; ?>
-  </div>
-
-  <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-    <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-      <!-- Video Modal -->
-      <div class="modal fade modal-video" id="videocontent-<?php echo $value['id']; ?>" role="dialog" aria-labelledby="videocontentTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-body p-0 rounded-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><span class="close-text">CLOSE</span> &times; </span>
-              </button>
-              <?php if( !empty($value["video_url"]) ): ?>
-                <!-- This is for video youtube embed -->
-                 <div class="videoWrapper">
-                     <video id="video1-<?php echo $value['id']; ?>" width="640" height="360">
-                        <source src="<?php echo $value["video_url"]; ?>" type="video/youtube" >
-                    </video>
-                    
-                </div>
-              <?php else: ?>
-                <!-- This is for video file upload -->
-                <div class="videoWrapper">
-                    <video id="video1-<?php echo $value['id']; ?>" width="320" height="240" controls="controls" preload="none" >
-                        <source class="srcv" src="<?php echo image_get_src($value["video"]) ?>" type="video/mp4">
-                    </video>  
-                </div>
-
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Video Modal End -->
-    <?php endif; ?>
-  <?php endforeach; endif; ?>
-  
-  <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/bg-activ.jpg'); ?>')">
-    <img class="product-showcase" src="<?php echo base_url('images/new-assets/MINI-350ML.png'); ?>" alt="">
+    <div class="container-fluid mb-3">
+        <img src="<?php echo base_url(image_get_src($event["image"])) ?>" class="w-100" alt="">
+    </div>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-5"></div>
-        <div class="col-12 col-md-7">
-          <h5 class="title-secondary">ACTIV'</h5>
-          <h4 class="title-main">LYCHEE LEMON</h4>
-          <label>500 ML & 350 ML</label>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus voluptatibus facere, corrupti quia voluptas cumque iure perspiciatis impedit veritatis vero fugiat modi quam qui reiciendis, repellendus beatae, quis corporis. Nesciunt?</p>
-          <a href="<?= base_url('products') ?>" class="btn btn-primary">Produk Lainnya</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h4 class="title-main-bold text-center mb-4">Info Mizone</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <h5 class="title-secondary mb-4">Artikel</h5>
-        </div>
-        <div class="col-6">
-          <a href="<?= base_url('articles') ?>" class="link">Lebih Banyak ></a>
-        </div>
-      </div>
-      <div class="row">
-      <?php if(isset($articles) && count($articles) > 0 ): foreach($articles as $article): $value = json_decode_table($article, default_language()); ?>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
-                <a href="<?= base_url('article').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
-              </div>
-              <div class="card-content">
-                <p> <?= strip_tags($value['excerpt']) ?> </p>
-                <a href="<?= base_url('article').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
-              </div>
+          <div class="col">
+              <?= $event['content'] ?>
           </div>
-        </div>
-      <?php endforeach; endif; ?>
       </div>
-      <div class="row">
-        <div class="col-6">
-          <h5 class="title-secondary mb-4">Acara</h5>
-        </div>
-        <div class="col-6">
-          <a href="<?= base_url('events') ?>" class="link">Lebih Banyak ></a>
-        </div>
-      </div>
-      <div class="row">
-      <?php if(isset($events) && count($events) > 0 ): foreach($events as $event): $value = json_decode_table($event, default_language()); ?>
+      <div class="row justify-content-center mt-5">
+      <?php if(isset($events) && count($events) > 0 ): foreach($events as $index => $event): $value = json_decode_table($event, default_language()); ?>
         <div class="col-12 col-md-4">
           <div class="card">
               <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
                 <a href="<?= base_url('event').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
               </div>
-              <div class="card-content">
-                <p> <?= strip_tags($value['excerpt']) ?> </p>
-                <a href="<?= base_url('event').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
-              </div>
+                <a href="<?= base_url('event').'/'.$value['slug'] ?>" class="link-article">< <= $index === 0 ? 'Sebelumnya' : 'Selanjutnya' => </a>
           </div>
         </div>
       <?php endforeach; endif; ?>
       </div>
     </div>
-  </div>
-
-  <div class="nav-bottom">
-    <ul class="nav nav-pills nav-fill">
-    <?php if(isset($products) && count($products) > 0 ): $i=0; foreach($products as $p): $value = json_decode_table($p, default_language()); $i++;?>
-      <li class="nav-item">
-        <a class="nav-link nav<?php echo $i; ?> slideInUp animated delay-<?php echo $i; ?>" href="product/<?php echo $p['slug']; ?>" style="background: url(<?php echo image_get_src($value["nav_bg"]) ?>) no-repeat 100% / cover;">
-          <i class="ico-nav tab-<?php echo $p['slug']; ?>" style="background: url(<?php echo image_get_src($value["nav"]) ?>) no-repeat 50%/contain;"></i>
-        </a>
-      </li>
-    <?php endforeach; endif; ?>
-    </ul>
   </div>
 
   <footer class="footer">

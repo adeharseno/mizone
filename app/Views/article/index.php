@@ -81,72 +81,19 @@
         </div>
       </div>
       <div class="row">
+      <?php if(isset($articles) && count($articles) > 0 ): foreach($articles as $article): $value = json_decode_table($article, default_language()); ?>
         <div class="col-12 col-md-4">
           <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/artikel1.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">Tanjakan lebih diminati daripada berlari</h5></a>
+              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
               </div>
               <div class="card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ullam? Cupiditate molestiae, repudiandae quos ratione architecto</p>
-                <a href="#" class="btn btn-secondary">Selengkapnya</a>
+                <p> <?= strip_tags($value['excerpt']) ?> </p>
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
               </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/artikel2.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">Hebatnya pelari wanita Indonesia</h5></a>
-              </div>
-              <div class="card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ullam? Cupiditate molestiae, repudiandae quos ratione architecto</p>
-                <a href="#" class="btn btn-secondary">Selengkapnya</a>
-              </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/artikel3.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">Manfaat Isotonik Setiap Hari</h5></a>
-              </div>
-              <div class="card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ullam? Cupiditate molestiae, repudiandae quos ratione architecto</p>
-                <a href="#" class="btn btn-secondary">Selengkapnya</a>
-              </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/Acara1.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">The Activ' Yoga di Sudirman</h5></a>
-              </div>
-              <div class="card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ullam? Cupiditate molestiae, repudiandae quos ratione architecto</p>
-                <a href="#" class="btn btn-secondary">Selengkapnya</a>
-              </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/Acara2.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">Memperkenalkan #TeamMizone!</h5></a>
-              </div>
-              <div class="card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ullam? Cupiditate molestiae, repudiandae quos ratione architecto</p>
-                <a href="#" class="btn btn-secondary">Selengkapnya</a>
-              </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/Acara3.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">60K Surabaya Open, Kamu Siap?</h5></a>
-              </div>
-              <div class="card-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ullam? Cupiditate molestiae, repudiandae quos ratione architecto</p>
-                <a href="#" class="btn btn-secondary">Selengkapnya</a>
-              </div>
-          </div>
-        </div>
+      <?php endforeach; endif; ?>
       </div>
     </div>
   </div>

@@ -69,6 +69,8 @@
                                     <li><a href="slider">Slider</a></li>
                                     <li><a href="products">Mizone Products</a></li>
                                     <li><a href="account">Account</a></li>
+                                    <li><a href="<?= base_url('Cw_admin/articles') ?>">Articles</a></li>
+                                    <li><a href="<?= base_url('Cw_admin/events') ?>">Events</a></li>
                                     <!-- <li><a href="video_section">Video</a></li> -->
                                     <!-- <li><a href="sosmed">Social Media</a></li> -->
                                 </ul>

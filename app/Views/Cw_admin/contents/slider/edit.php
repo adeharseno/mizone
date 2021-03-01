@@ -66,6 +66,15 @@
                                         <?php endif ?>
                                     </div>
                                 </div>
+                                <div class="col-md-6"> 
+                                    <div class="form-group">
+                                        <label>Target URL</label>
+                                        <input class="form-control" type="text" name="target_url[<?php echo $lang_key ?>]" value="<?php echo (set_value('target_url'))?set_value('target_url'):(isset($row["target_url"][$lang_key]) ? $row["target_url"][$lang_key] : "") ?>">
+                                        <?php if (\Config\Services::validation()->getError('target_url')): ?>
+                                            <label class="error"><?php echo \Config\Services::validation()->getError('target_url'); ?></label>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">

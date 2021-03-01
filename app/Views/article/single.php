@@ -86,38 +86,31 @@
     <div class="container mt-5">
         <div class="row mt-5">
             <div class="col mt-5">
-                <h1 class="title-main-bold mt-5">Hebatnya Wanita Pelari Indonesia</h1>
-                <h5 class="mb-4">Ditulis: 9 Agustus 2021 |Ditulis oleh: Mizone</h5>
+                <h1 class="title-main-bold mt-5"><?= $article['title'] ?></h1>
+                <h5 class="mb-4">Ditulis: <?= date('d F Y', strtotime($article['publish_date'])) ?> |Ditulis oleh: <?= !empty($article['author']) ? $article['author'] : 'mizone' ?></h5>
             </div>
         </div>
     </div>
     <div class="container-fluid mb-3">
-        <img src="https://www.irishtimes.com/polopoly_fs/1.2754792.1471088456!/image/image.jpg_gen/derivatives/box_620_330/image.jpg" class="w-100" alt="">
+        <img src="<?php echo base_url(image_get_src($article["image"])) ?>" class="w-100" alt="">
     </div>
     <div class="container">
       <div class="row">
           <div class="col">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+              <?= $article['content'] ?>
           </div>
       </div>
       <div class="row justify-content-center mt-5">
+      <?php if(isset($articles) && count($articles) > 0 ): foreach($articles as $index => $article): $value = json_decode_table($article, default_language()); ?>
         <div class="col-12 col-md-4">
           <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/artikel1.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">Tanjakan lebih diminati daripada berlari</h5></a>
+              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
+                <a href="<?= base_url('event').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
               </div>
-                <a href="#" class="link-article">< Sebelumnya</a>
+                <a href="<?= base_url('event').'/'.$value['slug'] ?>" class="link-article">< <= $index === 0 ? 'Sebelumnya' : 'Selanjutnya' => </a>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo base_url('images/new-assets/artikel2.jpg'); ?>');">
-                <a href="#"><h5 class="title-card">Hebatnya pelari wanita Indonesia</h5></a>
-              </div>
-                <a href="#" class="link-article text-right">Selanjutnya ></a>
-          </div>
-        </div>
+      <?php endforeach; endif; ?>
       </div>
     </div>
   </div>
