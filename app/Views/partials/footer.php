@@ -4,19 +4,19 @@
         <div class="col text-center">
           <h3 class="title-footer">BELI MIZONE DI</h3>
           <ul>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/tokopedia.png'); ?>" alt="Tokopedia"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/blibli.png'); ?>" alt="Blibli"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/shopee.png'); ?>" alt="Shopee"></a></li>
+            <li><a href="https://www.tokopedia.com/aqua-store/etalase/mizone"><img src="<?php echo base_url('images/new-assets/tokopedia.png'); ?>" alt="Tokopedia"></a></li>
+            <li><a href="https://www.blibli.com/brand/aqua-official-store?promoTab=false&excludeProductList=false&brand=MIZONE"><img src="<?php echo base_url('images/new-assets/blibli.png'); ?>" alt="Blibli"></a></li>
+            <li><a href="https://shopee.co.id/shop/47694662/search?shopCollection=8485409"><img src="<?php echo base_url('images/new-assets/shopee.png'); ?>" alt="Shopee"></a></li>
             <br />
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/jd.png'); ?>" alt="JD"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/klikindomart.png'); ?>" alt="Klik"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/alfacart.png'); ?>" alt="Alfacart"></a></li>
+            <li><a href="https://www.jd.id/product/_12734716/106480790.html?addOrigin=epi_camp_24803-757056"><img src="<?php echo base_url('images/new-assets/jd.png'); ?>" alt="JD"></a></li>
+            <li><a href="https://www.klikindomaret.com/search/?key=mizone"><img src="<?php echo base_url('images/new-assets/klikindomart.png'); ?>" alt="Klik"></a></li>
+            <li><a href="https://www.alfacart.com/product/mizone-activ-pet-500ml-707179"><img src="<?php echo base_url('images/new-assets/alfacart.png'); ?>" alt="Alfacart"></a></li>
           </ul>
           <h3 class="title-footer mt-4">TEMUKAN KAMI</h3>
           <ul>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/instagram.png'); ?>" alt="Instagram"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/facebook.png'); ?>" alt="Facebook"></a></li>
-            <li><a href="#"><img src="<?php echo base_url('images/new-assets/twitter.png'); ?>" alt="Twitter"></a></li>
+            <li><a href="https://www.instagram.com/mizoneid/"><img src="<?php echo base_url('images/new-assets/instagram.png'); ?>" alt="Instagram"></a></li>
+            <li><a href="https://www.facebook.com/mizone"><img src="<?php echo base_url('images/new-assets/facebook.png'); ?>" alt="Facebook"></a></li>
+            <li><a href="https://twitter.com/mizoneid"><img src="<?php echo base_url('images/new-assets/twitter.png'); ?>" alt="Twitter"></a></li>
           </ul>
           <p>COPYRIGHT MIZONE 2021</p>
         </div>
@@ -31,8 +31,20 @@
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/main.min.js'); ?>"></script>
+  <script src="<?php echo base_url('js/customs.js'); ?>"></script>
 
   <script>
+    
+    // Sticky Header
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 250){  
+            $('.header-main').addClass("sticky");
+        }
+        else{
+            $('.header-main').removeClass("sticky");
+        }
+    });
+    
     var url = window.location.href;
     // Get DIV
     // Check if URL contains the keyword

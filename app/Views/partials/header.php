@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
+  
 
   <title>Mizone Isotonik | 100% Mizone, Semangat Terus!!</title>
    <!-- Google Tag Manager -->
@@ -28,7 +29,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-  <div class="loader">
+  <div class="loader d-none">
     <div class="loader-content">
       <i class="spinner"></i>
       <p>LOADING</p>
@@ -46,8 +47,8 @@
                   <li>
                       <a href="#">Info Mizone</a>
                       <ul class="menu-inside">
-                          <li><a href="#">Artikel</a></li>
-                          <li><a href="#">Acara</a></li>
+                          <li><a href="<?= base_url('articles') ?>">Artikel</a></li>
+                          <li><a href="<?= base_url('events') ?>">Acara</a></li>
                       </ul>
                   </li>
                   <li><a href="#">#TeamMizone</a></li>
