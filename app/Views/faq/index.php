@@ -10,6 +10,126 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
+  <style>
+  .section-faq {
+    padding: 150px 0;
+     background: #0389C7;
+  }
+    a:focus,
+    a:hover,
+    a:active {
+      outline: 0;
+      text-decoration: none;
+    }
+    .panel {
+      border: 2px solid #f36b21;
+        background: white;
+      box-shadow: none;
+      margin-bottom: 20px;
+      border-radius: 4px !important;
+    }
+    .panel:last-child {
+      border-bottom: none;
+    }
+    .panel-group > .panel:first-child .panel-heading {
+      border-radius: 4px 4px 0 0;
+    }
+    .panel-collapse {
+        padding: 0px 14px 14px;
+    }
+    .panel-group .panel {
+      border-radius: 0;
+    }
+    .panel-group .panel + .panel {
+      margin-top: 0;
+    }
+    .panel-heading {
+      border-radius: 0;
+      border: none;
+      padding: 0;
+    }
+    .panel-title a {
+        display: block;
+        color: #1c4094;
+        padding: 15px;
+        position: relative;
+        font-size: 34px;
+        font-weight: 600;
+    }
+    .panel-body {
+      background: #fff;
+    }
+    .panel:last-child .panel-body {
+      border-radius: 0 0 4px 4px;
+    }
+    .panel:last-child .panel-heading {
+      border-radius: 0 0 4px 4px;
+      transition: border-radius 0.3s linear 0.2s;
+    }
+    .panel:last-child .panel-heading.active {
+      border-radius: 0;
+      transition: border-radius linear 0s;
+    }
+    /* #bs-collapse icon scale option */
+    .panel-heading a:before {
+      content: '\e146';
+      position: absolute;
+      font-family: 'Material Icons';
+      right: 5px;
+      top: 10px;
+      font-size: 24px;
+      transition: all 0.5s;
+      transform: scale(1);
+    }
+    .panel-heading.active a:before {
+      content: ' ';
+      transition: all 0.5s;
+      transform: scale(0);
+    }
+    #bs-collapse .panel-heading a:after {
+      content: ' ';
+      font-size: 24px;
+      position: absolute;
+      font-family: 'Material Icons';
+      right: 5px;
+      top: 10px;
+      transform: scale(0);
+      transition: all 0.5s;
+    }
+    #bs-collapse .panel-heading.active a:after {
+      content: '\e909';
+      transform: scale(1);
+      transition: all 0.5s;
+    }
+    #accordion .panel-heading a:before {
+      content: '\e316';
+      font-size: 24px;
+      position: absolute;
+      font-family: 'Material Icons';
+      right: 5px;
+      top: 10px;
+      transform: rotate(180deg);
+      transition: all 0.5s;
+    }
+    #accordion .panel-heading.active a:before {
+      transform: rotate(0deg);
+      transition: all 0.5s;
+    }
+    .contact-faq {
+        border: 2px solid #f36b21;
+        background: white;
+      box-shadow: none;
+      margin-bottom: 20px;
+      border-radius: 4px !important;
+          padding: 15px;
+    }
+.form-control {
+    border: 0;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+  </style>
   
 
   <title>Mizone Isotonik | 100% Mizone, Semangat Terus!!</title>
@@ -94,159 +214,91 @@
       </div>
     </div>
   </div>
-
-  <div class="main-slider slideInLeft animated">
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-      <?php if (!empty($value['target_url'])): ?>
-      <a href="<?= $value['target_url'] ?>">
-      <?php endif; ?>
-        <div class="slider-items" style="background:url(<?php echo image_get_src($value["bg_d"]) ?>) no-repeat center center ; background-size: cover;">
-          <div class="row vh-100">
-            <div class="col-12 align-self-center">
-              <img src="<?php echo image_get_src($value["content_d"]) ?>" class="img-fluid" alt="">
-            </div>
+  
+  <div class="section-faq">
+      <div class="container">
+          <div class="row">
+              <div class="col">
+                  <h4 class="title-main-bold text-center mb-4" style="color: white">FAQ</h4>
+              </div>
           </div>
-          <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-            <div class="video-box fadeInDown animated">
-              <img src="<?php echo image_get_src($value["video_thumb"]) ?>" alt="">
-              <a href="#videocontent-<?php echo $value['id']; ?>" data-toggle="modal" class="btn-play-vid">
-                <div class="play-btn">
-                  <div class="arrow-play">
-                    <i class="ico-play"></i>
+          <div class="row">
+              <div class="col">
+                    <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Apa itu Mizone Isotonik + VitaminB*? 
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                          <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end of panel -->
+                
+                      <div class="panel">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Apakah Mizone aman diminum ibu hamil?
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end of panel -->
+                
+                      <div class="panel">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Bagaimana cara menyimpan Mizone?
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end of panel -->
+                
+                    </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <h2 class="mb-4" style="color: white">Tidak menemukan pertanyaanmu?</h2>
+                  <div class="contact-faq">
+                      <form>
+                          <div class="row">
+                              <div class="col-6"><input type="text" class="form-control"  placeholder="Nama"></div>
+                              <div class="col-6"><input type="email" class="form-control"  placeholder="Email"></div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12"><textarea class="form-control" rows="3" placeholder="Pertanyaan"></textarea></div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 text-right">
+                                  <button type="submit" class="btn btn-primary">Kirim</button>
+                              </div>
+                          </div>
+                      </form>
                   </div>
-                  <p class="mb-0"><?php echo $value['video_title']; ?></p>
-                </div>
-              </a>
-            </div>
-          <?php endif; ?>
-        </div>
-      <?php if (!empty($value['target_url'])): ?>
-      </a>
-      <?php endif; ?>
-    <?php endforeach; endif; ?>
-  </div>
-
-  <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-    <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-      <!-- Video Modal -->
-      <div class="modal fade modal-video" id="videocontent-<?php echo $value['id']; ?>" role="dialog" aria-labelledby="videocontentTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-body p-0 rounded-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><span class="close-text">CLOSE</span> &times; </span>
-              </button>
-              <?php if( !empty($value["video_url"]) ): ?>
-                <!-- This is for video youtube embed -->
-                 <div class="videoWrapper">
-                     <video id="video1-<?php echo $value['id']; ?>" width="640" height="360">
-                        <source src="<?php echo $value["video_url"]; ?>" type="video/youtube" >
-                    </video>
-                    
-                </div>
-              <?php else: ?>
-                <!-- This is for video file upload -->
-                <div class="videoWrapper">
-                    <video id="video1-<?php echo $value['id']; ?>" width="320" height="240" controls="controls" preload="none" >
-                        <source class="srcv" src="<?php echo image_get_src($value["video"]) ?>" type="video/mp4">
-                    </video>  
-                </div>
-
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Video Modal End -->
-    <?php endif; ?>
-  <?php endforeach; endif; ?>
-  
-  <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/bg-activ.jpg'); ?>')">
-    <img class="product-showcase" src="<?php echo base_url('images/new-assets/MINI-350ML.png'); ?>" alt="">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-5"></div>
-        <div class="col-12 col-md-7">
-          <h5 class="title-secondary">ACTIV'</h5>
-          <h4 class="title-main">LYCHEE LEMON</h4>
-          <label>500 ML & 350 ML</label>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus voluptatibus facere, corrupti quia voluptas cumque iure perspiciatis impedit veritatis vero fugiat modi quam qui reiciendis, repellendus beatae, quis corporis. Nesciunt?</p>
-          <a href="<?= base_url('products') ?>" class="btn btn-primary">Produk Lainnya</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h4 class="title-main-bold text-center mb-4">Info Mizone</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <h5 class="title-secondary mb-4">Artikel</h5>
-        </div>
-        <div class="col-6">
-          <a href="<?= base_url('articles') ?>" class="link">Lebih Banyak ></a>
-        </div>
-      </div>
-      <div class="row">
-      <?php if(isset($articles) && count($articles) > 0 ): foreach($articles as $article): $value = json_decode_table($article, default_language()); ?>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
-                <a href="<?= base_url('article').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
-              </div>
-              <div class="card-content">
-                <p> <?= strip_tags($value['excerpt']) ?> </p>
-                <a href="<?= base_url('article').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
               </div>
           </div>
-        </div>
-      <?php endforeach; endif; ?>
       </div>
-      <div class="row">
-        <div class="col-6">
-          <h5 class="title-secondary mb-4">Acara</h5>
-        </div>
-        <div class="col-6">
-          <a href="<?= base_url('events') ?>" class="link">Lebih Banyak ></a>
-        </div>
-      </div>
-      <div class="row">
-      <?php if(isset($events) && count($events) > 0 ): foreach($events as $event): $value = json_decode_table($event, default_language()); ?>
-        <div class="col-12 col-md-4">
-          <div class="card">
-              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
-                <a href="<?= base_url('event').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
-              </div>
-              <div class="card-content">
-                <p> <?= strip_tags($value['excerpt']) ?> </p>
-                <a href="<?= base_url('event').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
-              </div>
-          </div>
-        </div>
-      <?php endforeach; endif; ?>
-      </div>
-    </div>
   </div>
-
-  <div class="nav-bottom">
-    <ul class="nav nav-pills nav-fill">
-    <?php if(isset($products) && count($products) > 0 ): $i=0; foreach($products as $p): $value = json_decode_table($p, default_language()); $i++;?>
-      <li class="nav-item">
-        <a class="nav-link nav<?php echo $i; ?> slideInUp animated delay-<?php echo $i; ?>" href="product/<?php echo $p['slug']; ?>" style="background: url(<?php echo image_get_src($value["nav_bg"]) ?>) no-repeat 100% / cover;">
-          <i class="ico-nav tab-<?php echo $p['slug']; ?>" style="background: url(<?php echo image_get_src($value["nav"]) ?>) no-repeat 50%/contain;"></i>
-        </a>
-      </li>
-    <?php endforeach; endif; ?>
-    </ul>
-  </div>
-  
-  <a href="#" id="testjs">Test</a>
 
   <footer class="footer">
     <div class="container">
@@ -294,6 +346,15 @@
             $('.header-main').removeClass("sticky");
         }
     });
+    
+    $('.collapse.in').prev('.panel-heading').addClass('active');
+    $('#accordion, #bs-collapse')
+        .on('show.bs.collapse', function(a) {
+          $(a.target).prev('.panel-heading').addClass('active');
+        })
+        .on('hide.bs.collapse', function(a) {
+          $(a.target).prev('.panel-heading').removeClass('active');
+        });
     
     var url = window.location.href;
     // Get DIV
