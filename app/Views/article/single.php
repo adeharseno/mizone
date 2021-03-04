@@ -97,7 +97,7 @@
     <div class="container">
       <div class="row">
           <div class="col">
-              <?= $article['content'] ?>
+              <?= str_replace('../../../', '../', $article['content']) ?>
           </div>
       </div>
       <div class="row justify-content-center mt-5">

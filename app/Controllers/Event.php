@@ -4,7 +4,16 @@ class Event extends BaseController
 {
 	public function index()
 	{
-        $data['events'] = $this->db->table("events")->where("flag", 0)->orderBy('publish_date', 'DESC')->get()->getResultArray();
+        $pager = \Config\Services::pager();
+        $model = new \App\Models\Event();
+        $search = $_GET['search'] ? $_GET['search'] : '';
+        
+        $data['events'] = $model->where("flag", 0);
+        if (!empty($search)) $data['events'] = $model->like('title', $search, 'both')
+                                                                ->orLike('content', $search);
+
+        $data['events'] = $model->orderBy('publish_date', 'DESC')->paginate(3, 'custom');
+        $data['pager'] = $model->pager;
         return view('event/index', $data);
 	}
 
