@@ -1,4 +1,4 @@
 
-<?= $this->include('partials\header') ?>
+<?= $this->include('partials/header') ?>
   <?= $this->renderSection('content') ?>
-<?= $this->include('partials\footer') ?>
+<?= $this->include('partials/footer') ?>

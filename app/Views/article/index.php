@@ -1,4 +1,4 @@
-<?= $this->extend('partials\main') ?>
+<?= $this->extend('partials/main') ?>
 
 <?= $this->section('content') ?>
   <div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">

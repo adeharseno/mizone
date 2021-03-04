@@ -1,4 +1,4 @@
-<?= $this->extend('partials\main') ?>
+<?= $this->extend('partials/main') ?>
 
 <?= $this->section('content') ?>
   <div class="main-menu">
