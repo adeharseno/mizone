@@ -75,11 +75,20 @@
                             </div>
                             <div class="form-group">
                                 <label>Title</label>
-                                <input class="form-control" type="text" name="title[<?php echo $lang_key ?>]" value="<?php echo (set_value('title['.$lang_key.']'))?set_value('title['.$lang_key.']'):(isset($row["title"][$lang_key]) ? $row["title"][$lang_key] : "") ?>">
+                                <input class="form-control" type="text" name="title[<?php echo $lang_key ?>]" id="title_<?= $lang_key ?>" value="<?php echo (set_value('title['.$lang_key.']'))?set_value('title['.$lang_key.']'):(isset($row["title"][$lang_key]) ? $row["title"][$lang_key] : "") ?>">
                                 <?php if (\Config\Services::validation()->getError('title['.$lang_key.']')): ?>
                                     <label class="error"><?php echo \Config\Services::validation()->getError('title['.$lang_key.']'); ?></label>
                                 <?php endif ?>
                             </div>
+                            <?php if ($lang_key === 'id') : ?>
+                            <div class="form-group">
+                                <label>Slug</label>
+                                <input class="form-control" type="text" name="slug" id="slug" value="<?php echo  (isset($row["slug"]) ? $row["slug"] : "") ?>">
+                                <?php if (\Config\Services::validation()->getError('slug')): ?>
+                                    <label class="error"><?php echo \Config\Services::validation()->getError('slug'); ?></label>
+                                <?php endif ?>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group">
                                 <label>Author</label>
                                 <input class="form-control" type="text" name="author[<?php echo $lang_key ?>]" value="<?php echo (set_value('author['.$lang_key.']'))?set_value('author['.$lang_key.']'):(isset($row["author"][$lang_key]) ? $row["author"][$lang_key] : "") ?>">

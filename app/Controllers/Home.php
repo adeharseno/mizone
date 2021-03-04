@@ -9,8 +9,8 @@ class Home extends BaseController
 
 		$data['sliders'] = $this->db->table("slider")->where("flag", 0)->get()->getResultArray();
 		$data['products'] = $this->db->table("mproducts")->where("flag", 0)->get()->getResultArray();
-		$data['articles'] = $this->db->table("articles")->where("flag", 0)->orderBy('publish_date', 'DESC')->get()->getResultArray();
-		$data['events'] = $this->db->table("events")->where("flag", 0)->orderBy('publish_date', 'DESC')->get()->getResultArray();
+		$data['articles'] = $this->db->table("articles")->where("flag", 0)->limit(3)->orderBy('publish_date', 'DESC')->get()->getResultArray();
+		$data['events'] = $this->db->table("events")->where("flag", 0)->limit(3)->orderBy('publish_date', 'DESC')->get()->getResultArray();
 		
 		if( $agent->isMobile() ){
 			// var_dump($data); exit();

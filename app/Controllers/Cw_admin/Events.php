@@ -80,6 +80,7 @@ class Events extends BaseController {
 			
 			$insert["title"] = json_encode($data_post["title"]);
 			$insert["author"] = json_encode($data_post["author"]);
+			$insert["slug"] = $data_post["slug"];
 			$insert["content"] = json_encode($data_post["content"]);
             $insert["excerpt"] = json_encode($data_post["excerpt"]);
 			$insert["publish_date"] = json_encode($data_post["publish_date"]);
@@ -94,7 +95,7 @@ class Events extends BaseController {
 
 				$this->session->setFlashdata("success_message", "Update Success");
 			}else {
-				$insert["slug"] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data_post["title"]['id'])));
+				// $insert["slug"] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $data_post["title"]['id'])));
 				$insert["created_at"] = date('Y-m-d H:i:s');
 				$insert["updated_at"] = date('Y-m-d H:i:s');
 

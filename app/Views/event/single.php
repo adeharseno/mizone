@@ -97,7 +97,7 @@
     <div class="container">
       <div class="row">
           <div class="col">
-              <?= $event['content'] ?>
+          <?= str_replace('../../../', '../', $event['content']) ?>
           </div>
       </div>
       <div class="row justify-content-center mt-5">

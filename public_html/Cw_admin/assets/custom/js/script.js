@@ -93,7 +93,7 @@ var script = {
 						if (wrap.hasClass("is-active")){
 							var dir = $(".bdir").text() + "/" || "";
 							var name = wrap.find(".box-copy .name").text();
-							cb(mainFolder + "storage/" + dir + name);
+							cb(mainFolder + "/storage/" + dir + name);
 							fileManager.el.find(fileManager.modalElement).modal("hide");
 						}
 					});
