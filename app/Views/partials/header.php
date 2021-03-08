@@ -35,37 +35,48 @@
       <p>LOADING</p>
     </div>
   </div>
-  <header class="header-main">
+  <header class="header-main" id="headerMain">
     <div class="row align-items-center">
       <div class="col-12 col-md-4">
         <a href="/"><div class="logo"></div></a>
       </div>
       <div class="col-12 col-md-8 text-right">
-          <div class="menu-item">
-              <ul>
-                  <li><a href="#">Produk</a></li>
-                  <li>
-                      <a href="#">Info Mizone</a>
-                      <ul class="menu-inside">
-                          <li><a href="<?= base_url('articles') ?>">Artikel</a></li>
-                          <li><a href="<?= base_url('events') ?>">Acara</a></li>
+          <div class="menu-container">
+              <nav class="navbars">
+                  <ul class="menus">
+                    <li class="menu-item">
+                      <a class="anchor" href="<?= base_url('produk') ?>">Produk</a>
+                    </li>
+                    <li class="menu-item">
+                      <a class="anchor" href="#">Info Mizone</a>
+                      <ul class="submenu">
+                        <li class="submenu-item">
+                          <a class="anchor mod-flex"  href="<?= base_url('articles') ?>">
+                            <span class="texts">Artikel</span>
+                          </a>
+                        </li>
+                        <li class="submenu-item">
+                          <a class="anchor mod-flex" href="<?= base_url('events') ?>">
+                            <span class="texts">Acara</span>
+                          </a>
+                        </li>
                       </ul>
-                  </li>
-                  <li><a href="#">#TeamMizone</a></li>
-                  <li><a href="#">#FAQ</a></li>
-              </ul>
+                    </li>
+                    <li class="menu-item">
+                      <a class="anchor" href="<?= base_url('team-mizone') ?>">#TeamMizone</a>
+                    </li>
+                    <li class="menu-item">
+                      <a class="anchor" href="<?= base_url('faq') ?>">#FAQ</a>
+                    </li>
+                  </ul>
+              </nav>
               <form class="d-flex" method="GET" action="<?= base_url('articles') ?>">
                 <div class="form-group has-search">
-                    <span class="form-control-feedback"><img src="<?php echo base_url('images/new-assets/search.png'); ?>" alt="Search" /></span>
+                    <span class="form-control-feedback"></span>
                     <input type="text" name="search" class="form-control" placeholder="Cari...">
                 </div>
               </form>
           </div>
-          <!--<div class="menu">-->
-          <!--  <div class="line line-1"></div>-->
-          <!--  <div class="line line-2"></div>-->
-          <!--  <div class="line line-3"></div>-->
-          <!--</div>-->
       </div>
     </div>
   </header>

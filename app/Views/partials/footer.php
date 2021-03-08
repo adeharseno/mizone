@@ -25,8 +25,11 @@
   </footer>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <!--<script src="js/jquery-3.4.1.min.js"></script>-->
-  <script src="<?php echo base_url('js/jquery-3.5.1.min.js'); ?>"></script>
+  <!--<script src="<?php //echo base_url('js/jquery-3.5.1.min.js'); ?>"></script>-->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
   <script src="<?php echo base_url('js/popper.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
@@ -38,12 +41,15 @@
     // Sticky Header
     $(window).scroll(function() {
         if ($(this).scrollTop() > 250){  
-            $('.header-main').addClass("sticky");
+            $('header').addClass("sticky");
         }
         else{
-            $('.header-main').removeClass("sticky");
+            $('header').removeClass("sticky");
         }
     });
+    $('#closeMainmenu').on('click', function(){
+        $('.main-menu').removeClass('active');
+    })
     
     var url = window.location.href;
     // Get DIV
