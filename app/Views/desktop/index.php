@@ -2,20 +2,23 @@
 
 <?= $this->section('content') ?>
   <div class="main-menu">
+    <div class="logo-main-menu"><img src="<?php echo base_url('images/logo.png'); ?>" alt=""></div>
+    <a href="javascript:;" id="closeMainmenu"><img src="<?php echo base_url('images/new-assets/close.png'); ?>" alt=""></a>
     <div class="container-mz">
       <div class="row align-items-center">
         <div class="col-md-4">
-          <h2 class="title-2">
-            MIZONE
-            <span class="title-iso">ISOTONIC</span>
-          </h2>
-          <h3 class="title-our">OUR PRODUCTS</h3>
+          <img src="<?php echo base_url('images/new-assets/headline-popup.png'); ?>" class="headline-popup" alt="">
         </div>
         <div class="col-md-8">
           <div class="row">
+              <div class="col text-center">
+                <a href="#" class="product-link custom">
+                    <img src="<?php echo base_url('images/new-assets/MINI-350MLs.png'); ?>" class="img-fluid product-shade" alt="">
+                </a>
+              </div>
             <?php if(isset($products) && count($products) > 0 ): foreach($products as $p): $value = json_decode_table($p, default_language()); ?>
               <div class="col text-center">
-                <a href="product/<?php echo $p['slug']; ?>" class="product-link">
+                <a href="#" class="product-link">
                   <img src="<?php echo image_get_src($value["bottle"]) ?>" class="img-fluid product-shade" alt="">
                 </a>
               </div>
@@ -103,7 +106,7 @@
           <h4 class="title-main">LYCHEE LEMON</h4>
           <label>500 ML & 350 ML</label>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus voluptatibus facere, corrupti quia voluptas cumque iure perspiciatis impedit veritatis vero fugiat modi quam qui reiciendis, repellendus beatae, quis corporis. Nesciunt?</p>
-          <a href="<?= base_url('products') ?>" class="btn btn-primary">Produk Lainnya</a>
+          <a href="javascript:;" class="btn btn-primary menu">Produk Lainnya</a>
         </div>
       </div>
     </div>

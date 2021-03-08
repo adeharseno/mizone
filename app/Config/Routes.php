@@ -40,6 +40,7 @@ $routes->get('mood', 'Home::mood_up');
 $routes->get('articles', 'Article::index', ['as' => 'article_archive']);
 $routes->get('article/(:any)', 'Article::single/$1', ['as' => 'article_single']);
 $routes->get('faq', 'Faq::index', ['as' => 'faq']);
+$routes->get('produk', 'Produk::index');
 $routes->get('team-mizone', 'Team::index', ['as' => 'team']);
 $routes->get('events', 'Event::index', ['as' => 'event_archive']);
 $routes->get('event/(:any)', 'Event::single/$1', ['as' => 'event_single']);
