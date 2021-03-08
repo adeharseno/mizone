@@ -31,20 +31,20 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->post('cw_admin/account/edit', 'Cw_admin/Account::save');
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index', ['as' => 'homepage']);
 $routes->get('activ', 'Home::activ');
-$routes->get('products', 'Home::tab');
+$routes->get('products', 'Home::tab', ['as' => 'product_single']);
 $routes->get('move-on', 'Home::move_on');
 $routes->get('break', 'Home::break_free');
 $routes->get('mood', 'Home::mood_up');
-$routes->get('articles', 'Article::index');
-$routes->get('article/(:any)', 'Article::single/$1');
-$routes->get('faq', 'Faq::index');
-$routes->get('team-mizone', 'Team::index');
-$routes->get('events', 'Event::index');
-$routes->get('event/(:any)', 'Event::single/$1');
+$routes->get('articles', 'Article::index', ['as' => 'article_archive']);
+$routes->get('article/(:any)', 'Article::single/$1', ['as' => 'article_single']);
+$routes->get('faq', 'Faq::index', ['as' => 'faq']);
+$routes->get('team-mizone', 'Team::index', ['as' => 'team']);
+$routes->get('events', 'Event::index', ['as' => 'event_archive']);
+$routes->get('event/(:any)', 'Event::single/$1', ['as' => 'event_single']);
 $routes->get('mood', 'Home::mood_up');
-$routes->get('product/(:any)', 'Home::product/$1');
+$routes->get('product/(:any)', 'Home::product/$1', ['as' => 'product_single']);
 $routes->get('products-all', 'Home::product_all');
 
 /**

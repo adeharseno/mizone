@@ -35,6 +35,10 @@
       <p>LOADING</p>
     </div>
   </div>
+  <?php
+    if (isset($different_class) && $different_class) $classNav = 'aaaa';
+    else $classNav = 'bbbb';
+  ?>
   <header class="header-main">
     <div class="row align-items-center">
       <div class="col-12 col-md-4">

@@ -19,6 +19,7 @@ class Article extends BaseController
 
     public function single($slug='')
 	{
+        $data['different_class'] = true;
         $data['article'] = $this->db->table("articles")->where(['flag' => 0, 'slug' => $slug])->get()->getRowArray();
         $data['articles'] = $this->db->table("articles")->where(['flag' => 0, 'slug !=' => $slug])->orderBy('publish_date', 'DESC')->limit(2)->get()->getResultArray();
 
