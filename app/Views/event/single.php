@@ -6,7 +6,7 @@
         <div class="row mt-5">
             <div class="col mt-5">
                 <h1 class="title-main-bold mt-5"><?= $event['title'] ?></h1>
-                <h5 class="mb-4">Ditulis: <?= date('d F Y', strtotime($event['publish_date'])) ?> |Ditulis oleh: <?= !empty($event['author']) ? $event['author'] : 'mizone' ?></h5>
+                <h5 class="mb-4">Ditulis: <?= format_indo(date('Y-m-d', strtotime($event['publish_date']))) ?> |Ditulis oleh: <?= !empty($event['author']) ? $event['author'] : 'mizone' ?></h5>
             </div>
         </div>
     </div>

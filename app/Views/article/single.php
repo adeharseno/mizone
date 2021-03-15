@@ -6,7 +6,7 @@
         <div class="row mt-5">
             <div class="col mt-5">
                 <h1 class="title-main-bold mt-5"><?= $article['title'] ?></h1>
-                <h5 class="mb-4">Ditulis: <?= date('d F Y', strtotime($article['publish_date'])) ?> |Ditulis oleh: <?= !empty($article['author']) ? $article['author'] : 'mizone' ?></h5>
+                <h5 class="mb-4">Ditulis: <?= format_indo(date('Y-m-d', strtotime($article['publish_date']))) ?> |Ditulis oleh: <?= !empty($article['author']) ? $article['author'] : 'mizone' ?></h5>
             </div>
         </div>
     </div>
