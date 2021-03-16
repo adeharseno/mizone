@@ -24,6 +24,10 @@
 
 </head>
 <body>
+  <?php
+    if (isset($different_class) && $different_class) $classNav = 'aaaa';
+    else $classNav = 'bbbb';
+  ?>
      <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDQLRG4"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
