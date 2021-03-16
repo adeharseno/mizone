@@ -23,6 +23,10 @@
       </div>
     </div>
   </footer>
+  <div class="popup-cookie">
+      Situs web ini menggunakan cookie untuk memastikan Anda mendapatkan pengalaman terbaik di situs web kami. Pelajari lebih lanjut
+      <a href="#">Ok</a>
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <!--<script src="<?php //echo base_url('js/jquery-3.5.1.min.js'); ?>"></script>-->
