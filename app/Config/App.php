@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'https://alfsdigital.com/mizone/staging/';
+	public $baseURL = 'https://dev.mizone.co.id/';
 
 	/*
 	|--------------------------------------------------------------------------
