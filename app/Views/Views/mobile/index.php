@@ -391,7 +391,7 @@ header('X-Frame-Options: DENY');
         defaultVideoWidth: 480,
         defaultVideoHeight: 270,
         videoWidth: -1,
-        videoHeight: -1,
+        videoHeight: -1, 
         audioWidth: 400,
         audioHeight: 30,
     });
