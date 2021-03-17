@@ -23,9 +23,9 @@
       </div>
     </div>
   </footer>
-  <div class="popup-cookie">
+  <div class="popup-cookie" style="display: none;">
       Situs web ini menggunakan cookie untuk memastikan Anda mendapatkan pengalaman terbaik di situs web kami. Pelajari lebih lanjut
-      <a href="#">Ok</a>
+      <a href="#" id="agreeCookies">Ok</a>
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -73,6 +73,37 @@
         audioWidth: 400,
         audioHeight: 30,
     });
+
+    const agreeCookies = getCookie('agree_cookies')
+    if (!agreeCookies) $('.popup-cookie').show();
+    $('#agreeCookies').on('click', function() {
+      if (!agreeCookies) setCookie('agree_cookies', 1, 365)
+      $('.popup-cookie').hide();
+    })
+
+    function setCookie(name,value,days) {
+      var expires = "";
+      if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+    function eraseCookie(name) {   
+      document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
     <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
       <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
         
