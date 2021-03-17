@@ -3,8 +3,8 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="description" content="Minuman Isotonik dengan Vitamin B3, B6, B12 bantu lo semangat terus!!">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content=" Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
   <link rel="icon" href="images/favicon.ico" type="image/ico">
   <!-- Bootstrap CSS -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
   
 
-  <title>Mizone Isotonik | 100% Mizone, Semangat Terus!!</title>
+  <title>Mizone Isotonik + Vitamin B</title>
    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -41,10 +41,17 @@
   </div>
   <header class="header-main" id="headerMain">
     <div class="row align-items-center">
-      <div class="col-12 col-md-4">
+      <div class="col-4">
         <a href="/"><div class="logo"></div></a>
       </div>
-      <div class="col-12 col-md-8 text-right">
+      <div class="col-8 text-right">
+          <div class="burger">
+              <div class="menu menu-mobile">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+              </div>
+          </div>
           <div class="menu-container">
               <nav class="navbars">
                   <ul class="menus">
@@ -52,7 +59,7 @@
                       <a class="anchor" href="<?= base_url('produk') ?>">Produk</a>
                     </li>
                     <li class="menu-item">
-                      <a class="anchor" href="#">Info Mizone</a>
+                      <a class="anchor has-submenu" href="#">Info Mizone</a>
                       <ul class="submenu">
                         <li class="submenu-item">
                           <a class="anchor mod-flex"  href="<?= base_url('articles') ?>">
@@ -70,7 +77,7 @@
                       <a class="anchor" href="<?= base_url('team-mizone') ?>">#TeamMizone</a>
                     </li>
                     <li class="menu-item">
-                      <a class="anchor" href="<?= base_url('faq') ?>">#FAQ</a>
+                      <a class="anchor" href="<?= base_url('faq') ?>">FAQ</a>
                     </li>
                   </ul>
               </nav>

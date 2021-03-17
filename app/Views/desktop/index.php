@@ -96,7 +96,7 @@
     <?php endif; ?>
   <?php endforeach; endif; ?>
   
-  <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/bg-activ.jpg'); ?>')">
+  <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/bg-active-desktop.jpeg'); ?>')">
     <img class="product-showcase" src="<?php echo base_url('images/new-assets/MINI-350ML.png'); ?>" alt="">
     <div class="container">
       <div class="row">
@@ -105,7 +105,10 @@
           <h5 class="title-secondary">ACTIV'</h5>
           <h4 class="title-main">LYCHEE LEMON</h4>
           <label>500 ML & 350 ML</label>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus voluptatibus facere, corrupti quia voluptas cumque iure perspiciatis impedit veritatis vero fugiat modi quam qui reiciendis, repellendus beatae, quis corporis. Nesciunt?</p>
+          <p>Keringetan abis beraktivitas penuh dari pagi? <br />
+            Mizone Activ', dengan rasa favorit konsumen: Lychee Lemon, <br />
+            balikin cairan tubuh dan pembentukan energi, bantu badan siap lanjut terus! <br />
+            Kini tersedia dalam 2 ukuran: 500ml & Mini 350ml yang praktis di bawa kemana aja cocok buat kalian yg aktif!</p>
           <a href="javascript:;" class="btn btn-primary menu">Produk Lainnya</a>
         </div>
       </div>

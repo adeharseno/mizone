@@ -11,7 +11,7 @@ header('X-Frame-Options: DENY');
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="description" content="Minuman Isotonik dengan Vitamin B3, B6, B12 bantu lo semangat terus!!">
+  <meta name="description" content=" Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
   
@@ -19,9 +19,66 @@ header('X-Frame-Options: DENY');
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
+  <style>
+        body {
+            overflow: auto;
+        }
+        .product-showcase {
+            width: 200px;
+            position: relative;
+            bottom: 0px;
+            margin: 100px 0;
+        }
+        .section-product {
+            padding: 5px 0;
+        }
+        .products {
+            position: absolute;
+            bottom: 11em;
+            left: 52%;
+        }
+        .menu-slider,
+        .slide-menu.container-mz {
+            display: none !important;
+        }
+        .main-menu.menu-trans.active {
+            left: -20000px !important;
+        }
+        @media only screen and (max-width: 767px) {
+            .menu-container {
+                display: block;
+                position: fixed;
+                background: #003182;
+                top: 60px;
+                bottom: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                z-index: 999;
+            }
+            .menu-container.active {
+                left: 0;
+            }
+            .header-main {
+                background: #003182;
+            }
+            .menus {
+                width: 100%;
+                padding: 0;
+            }
+            .menu-item {
+                display: block;
+                margin: 30px 0;
+            }
+            .slick-slide div {
+                width: 100%;
+            }
+        }
 
+  </style>
 
-  <title>Mizone Isotonik | 100% Mizone, Semangat Terus!!</title>
+  <title>Mizone Isotonik + Vitamin B</title>
 
    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -49,7 +106,7 @@ header('X-Frame-Options: DENY');
         <a href="/"><div class="logo"></div></a>
       </div>
       <div class="col text-right">
-          <div class="menu menu-mobile">
+          <div class="menu menu-mobile trigger-menu">
             <div class="line line-1"></div>
             <div class="line line-2"></div>
             <div class="line line-3"></div>
@@ -57,6 +114,43 @@ header('X-Frame-Options: DENY');
       </div>
     </div>
   </header>
+  
+  <div class="menu-container">
+      <nav class="navbars">
+          <ul class="menus">
+            <li class="menu-item">
+              <a class="anchor" href="<?= base_url('produk') ?>">Produk</a>
+            </li>
+            <li class="menu-item">
+              <a class="anchor has-submenu" href="#">Info Mizone</a>
+              <ul class="submenu">
+                <li class="submenu-item">
+                  <a class="anchor mod-flex"  href="<?= base_url('articles') ?>">
+                    <span class="texts">Artikel</span>
+                  </a>
+                </li>
+                <li class="submenu-item">
+                  <a class="anchor mod-flex" href="<?= base_url('events') ?>">
+                    <span class="texts">Acara</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item">
+              <a class="anchor" href="<?= base_url('team-mizone') ?>">#TeamMizone</a>
+            </li>
+            <li class="menu-item">
+              <a class="anchor" href="<?= base_url('faq') ?>">FAQ</a>
+            </li>
+          </ul>
+      </nav>
+      <form class="d-flex" method="GET" action="<?= base_url('articles') ?>">
+        <div class="form-group has-search">
+            <span class="form-control-feedback"></span>
+            <input type="text" name="search" class="form-control" placeholder="Cari...">
+        </div>
+      </form>
+  </div>
 
   <div class="main-menu menu-trans normalize">
     <div class="menu-title">
@@ -132,6 +226,101 @@ header('X-Frame-Options: DENY');
       <!-- Video Modal End -->
     <?php endif; ?>
   <?php endforeach; endif; ?>
+  
+  <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/ph-asnawi-product.jpg'); ?>')">
+    <img class="product-showcase d-none d-md-block d-lg-block" src="<?php echo base_url('images/new-assets/MINI-350ML.png'); ?>" alt="">
+    <img class="product-showcase d-block d-md-none d-lg-none" src="<?php echo base_url('images/new-assets/packshot-mizone.png'); ?>" alt="">
+    <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <a href="<?= base_url('produk') ?>" class="btn btn-primary products">Produk Lainnya</a>
+         </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h4 class="title-main-bold text-center mb-4">Info Mizone</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <h5 class="title-secondary mb-4">Artikel</h5>
+        </div>
+        <div class="col-6">
+          <a href="<?= base_url('articles') ?>" class="link">Lebih Banyak ></a>
+        </div>
+      </div>
+      <div class="row">
+      <?php if(isset($articles) && count($articles) > 0 ): foreach($articles as $article): $value = json_decode_table($article, default_language()); ?>
+        <div class="col-12 col-md-4">
+          <div class="card">
+              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
+              </div>
+              <div class="card-content">
+                <p> <?= strip_tags($value['excerpt']) ?> </p>
+                <a href="<?= base_url('article').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
+              </div>
+          </div>
+        </div>
+      <?php endforeach; endif; ?>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <h5 class="title-secondary mb-4">Acara</h5>
+        </div>
+        <div class="col-6">
+          <a href="<?= base_url('events') ?>" class="link">Lebih Banyak ></a>
+        </div>
+      </div>
+      <div class="row">
+      <?php if(isset($events) && count($events) > 0 ): foreach($events as $event): $value = json_decode_table($event, default_language()); ?>
+        <div class="col-12 col-md-4">
+          <div class="card">
+              <div class="card-img" style="background-image: url('<?php echo image_get_src($value["image"]) ?>');">
+                <a href="<?= base_url('event').'/'.$value['slug'] ?>"><h5 class="title-card"><?= $value['title'] ?></h5></a>
+              </div>
+              <div class="card-content">
+                <p> <?= strip_tags($value['excerpt']) ?> </p>
+                <a href="<?= base_url('event').'/'.$value['slug'] ?>" class="btn btn-secondary">Selengkapnya</a>
+              </div>
+          </div>
+        </div>
+      <?php endforeach; endif; ?>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h3 class="title-footer">BELI MIZONE DI</h3>
+          <ul>
+            <li><a href="https://www.tokopedia.com/aqua-store/etalase/mizone"><img src="<?php echo base_url('images/new-assets/tokopedia.png'); ?>" alt="Tokopedia"></a></li>
+            <li><a href="https://www.blibli.com/brand/aqua-official-store?promoTab=false&excludeProductList=false&brand=MIZONE"><img src="<?php echo base_url('images/new-assets/blibli.png'); ?>" alt="Blibli"></a></li>
+            <li><a href="https://shopee.co.id/shop/47694662/search?shopCollection=8485409"><img src="<?php echo base_url('images/new-assets/shopee.png'); ?>" alt="Shopee"></a></li>
+            <br />
+            <li class="footer-customisation"><a href="https://www.jd.id/product/_12734716/106480790.html?addOrigin=epi_camp_24803-757056"><img src="<?php echo base_url('images/new-assets/jd.png'); ?>" alt="JD"></a></li>
+            <li><a href="https://www.klikindomaret.com/search/?key=mizone"><img src="<?php echo base_url('images/new-assets/klikindomart.png'); ?>" alt="Klik"></a></li>
+            <li><a href="https://www.alfacart.com/product/mizone-activ-pet-500ml-707179"><img src="<?php echo base_url('images/new-assets/alfacart.png'); ?>" alt="Alfacart"></a></li>
+          </ul>
+          <h3 class="title-footer mt-4">TEMUKAN KAMI</h3>
+          <ul>
+            <li><a href="https://www.instagram.com/mizoneid/"><img src="<?php echo base_url('images/new-assets/instagram.png'); ?>" alt="Instagram"></a></li>
+            <li><a href="https://www.facebook.com/mizone"><img src="<?php echo base_url('images/new-assets/facebook.png'); ?>" alt="Facebook"></a></li>
+            <li><a href="https://twitter.com/mizoneid"><img src="<?php echo base_url('images/new-assets/twitter.png'); ?>" alt="Twitter"></a></li>
+          </ul>
+          <p>COPYRIGHT MIZONE 2021</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   
   <!-- Optional JavaScript -->
@@ -148,9 +337,19 @@ header('X-Frame-Options: DENY');
         setTimeout(function(){ get_products(); }, 10000);
     });
     
+    $('.trigger-menu').on('click', function() {
+        $('.menu-container').toggleClass('active');
+    })
+    
     $('.menu-mobile').on('click', function(){
         get_products();
     });
+    
+    if ($(window).width() < 767) {
+        $('.has-submenu').on('click', function() {
+            $('.submenu').toggleClass('active');
+        })
+    }
     
     function get_products(){
         if( prod == false ){
@@ -192,7 +391,7 @@ header('X-Frame-Options: DENY');
         defaultVideoWidth: 480,
         defaultVideoHeight: 270,
         videoWidth: -1,
-        videoHeight: -1,
+        videoHeight: -1, 
         audioWidth: 400,
         audioHeight: 30,
     });

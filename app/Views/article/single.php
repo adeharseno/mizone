@@ -38,29 +38,6 @@
     </div>
   </div>
   
-  <style>
-    .anchor {
-        color: #1c4094;
-    }
-    .form-group.has-search input {
-        border: 2px solid #1c4094;
-        color: #1c4094;
-    }
-    .form-group.has-search input::-webkit-input-placeholder {
-        color: #1c4094;
-    }
-    .form-group.has-search input:-ms-input-placeholder {
-        color: #1c4094;
-    }
-    .form-group.has-search input::placeholder {
-        color: #1c4094;
-    }
-    .texts {
-        color: white;
-    }
-    .has-search .form-control-feedback:before {
-        background-image: url('../images/new-assets/search-blue.png');
-    }
-</style>
+  <style>@media (min-width:767px){.anchor{color:#1c4094}.form-group.has-search input{border:2px solid #1c4094;color:#1c4094}.form-group.has-search input::-webkit-input-placeholder{color:#1c4094}.form-group.has-search input:-ms-input-placeholder{color:#1c4094}.form-group.has-search input::placeholder{color:#1c4094}.texts{color:#fff}.has-search .form-control-feedback:before{background-image:url(../images/new-assets/search-blue.png)}}</style>
 
   <?= $this->endSection() ?>
