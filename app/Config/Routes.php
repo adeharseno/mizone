@@ -47,6 +47,10 @@ $routes->get('event/(:any)', 'Event::single/$1');
 $routes->get('mood', 'Home::mood_up');
 $routes->get('product/(:any)', 'Home::product/$1');
 $routes->get('products-all', 'Home::product_all');
+$routes->group('api', function($routes)
+{
+    $routes->post('contact', 'Contact::submit');
+});
 
 /**
  * --------------------------------------------------------------------

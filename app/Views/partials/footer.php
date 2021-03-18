@@ -138,6 +138,28 @@
     function eraseCookie(name) {   
       document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
+
+    $('#formContact').submit(function(e) {
+      e.preventDefault();
+      $("#btnContact").attr("disabled", "disabled");
+
+			$.ajax({
+				type: 'POST',
+				url: $('#submitContactURL').val(),
+				data: $('#formContact').serializeArray(),
+				dataType: 'JSON',
+				success: function(data) {
+					if (data.status === 200) {
+            $("#btnContact").removeAttr("disabled", "disabled");
+            $('#formContact').trigger("reset");
+            alert('data kamu berhasil terkirim')
+					} else {
+            $("#btnContact").removeAttr("disabled", "disabled");
+            alert('gagal mengirim data kamu, silahkan coba kembali')
+					}
+				}
+			})
+    });
     <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
       <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
         

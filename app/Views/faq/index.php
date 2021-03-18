@@ -104,13 +104,14 @@
               <div class="col">
                   <h2 class="mb-4" style="color: white">Tidak menemukan pertanyaanmu?</h2>
                   <div class="contact-faq">
-                      <form>
+                      <input type="hidden" id="submitContactURL" value="<?= base_url('/api/contact') ?>">
+                      <form action="#" id="formContact" method="POST">
                           <div class="row">
-                              <div class="col-12 col-md-6"><input type="text" class="form-control"  placeholder="Nama"></div>
-                              <div class="col-12 col-md-6"><input type="email" class="form-control"  placeholder="Email"></div>
+                              <div class="col-12 col-md-6"><input type="text" name="name" required class="form-control"  placeholder="Nama"></div>
+                              <div class="col-12 col-md-6"><input type="email" name="email" required class="form-control"  placeholder="Email"></div>
                           </div>
                           <div class="row">
-                              <div class="col-12"><textarea class="form-control" rows="3" placeholder="Pertanyaan"></textarea></div>
+                              <div class="col-12"><textarea class="form-control" name="question" required rows="3" placeholder="Pertanyaan"></textarea></div>
                           </div>
                           <div class="row">
                               <div class="col-12 text-right">

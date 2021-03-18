@@ -33,4 +33,21 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+	public $contact = [
+		'name' => 'required',
+		'question' => 'required',
+		'email' => 'required|valid_email'
+	];
+	 
+	public $contact_errors = [
+		'name'=> [
+			'required'  => 'Nama wajib diisi.'
+		],
+		'question'=> [
+			'required'  => 'Pertanyaan wajib diisi.'
+		],
+		'email'=> [
+			'required'  => 'Email wajib diisi.'
+		]
+	];
 }
