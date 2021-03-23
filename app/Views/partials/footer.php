@@ -1,4 +1,4 @@
-  <a href="javascript:;" id="clickme">Beli Sekarang</a>
+  <a href="https://www.tokopedia.com/aqua-store/etalase/mizone" id="clickme" target="_blank">Beli Sekarang</a>
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -28,7 +28,6 @@
       Situs web ini menggunakan cookie untuk memastikan Anda mendapatkan pengalaman terbaik di situs web kami. Pelajari lebih lanjut
       <a href="#" id="agreeCookies">Ok</a>
   </div>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <!--<script src="<?php //echo base_url('js/jquery-3.5.1.min.js'); ?>"></script>-->
@@ -38,7 +37,6 @@
   crossorigin="anonymous"></script>
   <script src="<?php echo base_url('js/popper.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-  <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/main.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/customs.js'); ?>"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -53,39 +51,18 @@
             clickable: true,
         },
     });
-    
-    // Sticky Header
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 250){  
-            $('header').addClass("sticky");
-        }
-        else{
-            $('header').removeClass("sticky");
-        }
-    });
-    
     if ($(window).width() < 767) {
         $('.has-submenu').on('click', function() {
             $('.submenu').toggleClass('active');
         })
-    }
-   
-    // Scroll to
-    $("#clickme").click(function (){
-        $('html, body').animate({
-            scrollTop: $(".footer").offset().top
-        }, 2000);
-    });
-    
+    };
     // Close Menu
     $('#closeMainmenu').on('click', function(){
         $('.main-menu').removeClass('active');
-    })
-    
+    });
     $('.burger').on('click', function() {
         $('.menu-container').toggleClass('active');
-    })
-    
+    });
     $('.trigger-hiddens').on('click', function() {
         $('.hiddens').toggleClass('active');
         $('.trigger-hiddens').toggleClass('active');
@@ -99,23 +76,12 @@
       $('.main-menu').addClass('active');
       $('.menu').addClass('active');
     }
-    $('video').mediaelementplayer({
-        enableAutosize: true,
-        alwaysShowControls: true,
-        defaultVideoWidth: 480,
-        defaultVideoHeight: 270,
-        videoWidth: -1,
-        videoHeight: -1,
-        audioWidth: 400,
-        audioHeight: 30,
-    });
     const agreeCookies = getCookie('agree_cookies')
     if (!agreeCookies) $('.popup-cookie').show();
     $('#agreeCookies').on('click', function() {
       if (!agreeCookies) setCookie('agree_cookies', 1, 365)
       $('.popup-cookie').hide();
     })
-
     function setCookie(name,value,days) {
       var expires = "";
       if (days) {
@@ -138,7 +104,6 @@
     function eraseCookie(name) {   
       document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
-
     $('#formContact').submit(function(e) {
       e.preventDefault();
       $("#btnContact").attr("disabled", "disabled");
@@ -160,25 +125,6 @@
 				}
 			})
     });
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-      <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-        
-        $('#videocontent-<?php echo $value['id']; ?>').on("hidden.bs.modal", function (i) {
-            $(".main-slider").slick("slickPlay"),
-            $(this).find('#video1-<?php echo $value['id']; ?>').trigger('pause');
-           
-        });
-        
-        $('#videocontent-<?php echo $value['id']; ?>').on("show.bs.modal", function (i) {
-            $(".main-slider").slick("slickPause"),
-            $(this).find('#video1-<?php echo $value['id']; ?>').trigger('play');
-            $(this).find('#video1-<?php echo $value['id']; ?>')[0].setCurrentTime(0);
-            
-        });
-      <?php endif; ?>
-    <?php endforeach; endif; ?>
-      
-  
   </script>
 </body>
 </html>

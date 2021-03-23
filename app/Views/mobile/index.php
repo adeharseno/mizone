@@ -20,63 +20,7 @@ header('X-Frame-Options: DENY');
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
-  <style>
-        body {
-            overflow: auto;
-        }
-        .product-showcase {
-            width: 200px;
-            position: relative;
-            bottom: 0px;
-            margin: 100px 0;
-        }
-        .section-product {
-            padding: 5px 0;
-        }
-        .products {
-            position: absolute;
-            bottom: 11em;
-            left: 52%;
-        }
-        .menu-slider,
-        .slide-menu.container-mz {
-            display: none !important;
-        }
-        .main-menu.menu-trans.active {
-            left: -20000px !important;
-        }
-        @media only screen and (max-width: 767px) {
-            .menu-container {
-                display: block;
-                position: fixed;
-                background: #003182;
-                top: 60px;
-                bottom: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                z-index: 999;
-            }
-            .menu-container.active {
-                left: 0;
-            }
-            .header-main {
-                background: #003182;
-            }
-            .menus {
-                width: 100%;
-                padding: 0;
-            }
-            .menu-item {
-                display: block;
-                margin: 30px 0;
-            }
-            .slick-slide div {
-                width: 100%;
-            }
-        }
-
-  </style>
+  <style>body{overflow:auto}.product-showcase{width:160px;position:relative;bottom:0}.section-product{padding:120px 0}.menu-slider,.slide-menu.container-mz{display:none!important}.main-menu.menu-trans.active{left:-20000px!important}@media only screen and (max-width:767px){.menu-container{display:block;position:fixed;background:#003182;top:60px;bottom:0;left:-100%;width:100%;height:100%;z-index:999}.menu-container.active{left:0}.header-main{background:#003182}.menus{width:100%;padding:0}.menu-item{display:block;margin:30px 0}.slick-slide div{width:100%}}.title-secondary{font-size:20px}.title-main{font-size:40px;margin:0}.section-product label{font-size:18px}.section-product p{font-size:16px}</style>
 
   <title>Mizone Isotonik + Vitamin B</title>
 
@@ -228,11 +172,19 @@ header('X-Frame-Options: DENY');
   <?php endforeach; endif; ?>
   
   <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/ph-asnawi-product.jpg'); ?>')">
-    <img class="product-showcase d-none d-md-block d-lg-block" src="<?php echo base_url('images/new-assets/MINI-350ML.png'); ?>" alt="">
-    <img class="product-showcase d-block d-md-none d-lg-none" src="<?php echo base_url('images/new-assets/packshot-mizone.png'); ?>" alt="">
     <div class="container">
       <div class="row">
-         <div class="col-12">
+         <div class="col-5">
+            <img class="product-showcase" src="<?php echo base_url('images/new-assets/packshot-mizone.png'); ?>" alt="">
+         </div>
+         <div class="col-7">
+            <h5 class="title-secondary">ACTIV'</h5>
+            <h4 class="title-main">LYCHEE LEMON</h4>
+            <label>500 ML & 350 ML</label>
+            <p>Keringetan abis beraktivitas penuh dari pagi?
+            Mizone Activ', dengan rasa favorit konsumen: Lychee Lemon,
+            balikin cairan tubuh dan pembentukan energi, bantu badan siap lanjut terus!
+            Kini tersedia dalam 2 ukuran: 500ml & Mini 350ml yang praktis di bawa kemana aja cocok buat kalian yg aktif!</p>
             <a href="<?= base_url('produk') ?>" class="btn btn-primary products">Produk Lainnya</a>
          </div>
       </div>
@@ -294,7 +246,8 @@ header('X-Frame-Options: DENY');
       </div>
     </div>
   </div>
-
+  
+  <a href="https://www.tokopedia.com/aqua-store/etalase/mizone" id="clickme" target="_blank">Beli Sekarang</a>
   
   <footer class="footer">
     <div class="container">
@@ -328,14 +281,8 @@ header('X-Frame-Options: DENY');
   <script src="<?php echo base_url('js/jquery-3.5.1.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/popper.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-  <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/main.min.js'); ?>"></script>
   <script>
-    
-    var prod = false;
-    $( document ).ready(function() {
-        setTimeout(function(){ get_products(); }, 10000);
-    });
     
     $('.trigger-menu').on('click', function() {
         $('.menu-container').toggleClass('active');
@@ -350,68 +297,6 @@ header('X-Frame-Options: DENY');
             $('.submenu').toggleClass('active');
         })
     }
-    
-    function get_products(){
-        if( prod == false ){
-            $.ajax({
-              url: "<?php echo base_url('products-all'); ?>",
-            })
-              .done(function( data ) {
-                  
-                $('.menu-slider').html( jQuery.parseJSON(data) );
-                $('.menu-slider').slick({
-                  dots: true,
-                });
-                $(".is-view-content").hide(),
-                $(".view-content").on("click", ".btn-view", function (i) {
-                    i.preventDefault(), $(this).closest(".view-content").find(".is-view-content").slideToggle(400);
-                }),
-                $(".is-view-content").on("click", ".close-view", function () {
-                    $(this).closest(".is-view-content").slideToggle(400);
-                }),
-                $(".menu-slider").on("click", ".slick-next", function () {
-                    $(".is-view-content").slideUp(400);
-                }),
-                $(".menu-slider").on("click", ".slick-prev", function () {
-                    $(".is-view-content").slideUp(400);
-                });
-                $('.menu-slider').on('swipe', function(event, slick, direction){
-                  $('.is-view-content').slideUp(400);
-                });
-                
-                prod = true;
-            });
-        }
-    }
-    
-    
-    $('video').mediaelementplayer({
-        enableAutosize: true,
-        alwaysShowControls: true,
-        defaultVideoWidth: 480,
-        defaultVideoHeight: 270,
-        videoWidth: -1,
-        videoHeight: -1, 
-        audioWidth: 400,
-        audioHeight: 30,
-    });
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-      <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-        
-        $('#videocontent-<?php echo $value['id']; ?>').on("hidden.bs.modal", function (i) {
-            $(".main-slider").slick("slickPlay"),
-            $(this).find('#video1-<?php echo $value['id']; ?>').trigger('pause');
-           
-        });
-        
-        $('#videocontent-<?php echo $value['id']; ?>').on("show.bs.modal", function (i) {
-            $(".main-slider").slick("slickPause"),
-            $(this).find('#video1-<?php echo $value['id']; ?>').trigger('play');
-            $(this).find('#video1-<?php echo $value['id']; ?>')[0].setCurrentTime(0);
-            
-        });
-      <?php endif; ?>
-    <?php endforeach; endif; ?>
     
   </script>
 </body>

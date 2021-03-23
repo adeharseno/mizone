@@ -12,13 +12,13 @@
         <div class="col-md-8">
           <div class="row">
               <div class="col text-center">
-                <a href="#" class="product-link custom">
+                <a href="produk#activ" class="product-link custom">
                     <img src="<?php echo base_url('images/new-assets/MINI-350MLs.png'); ?>" class="img-fluid product-shade" alt="">
                 </a>
               </div>
             <?php if(isset($products) && count($products) > 0 ): foreach($products as $p): $value = json_decode_table($p, default_language()); ?>
               <div class="col text-center">
-                <a href="#" class="product-link">
+                <a href="produk#<?php echo $p['slug']; ?>" class="product-link">
                   <img src="<?php echo image_get_src($value["bottle"]) ?>" class="img-fluid product-shade" alt="">
                 </a>
               </div>
@@ -34,8 +34,8 @@
       <?php if (!empty($value['target_url'])): ?>
       <a href="<?= $value['target_url'] ?>">
       <?php endif; ?>
-        <div class="slider-items" style="background:url(<?php echo image_get_src($value["bg_d"]) ?>) no-repeat center center ; background-size: cover;">
-          <div class="row vh-100">
+        <div class="slider-items" style="background-image: url(<?php echo image_get_src($value["bg_d"]) ?>); background-size: cover; background-repeat: no-repeat; background-position: 0 -130px;">
+          <div class="row">
             <div class="col-12 align-self-center">
               <img src="<?php echo image_get_src($value["content_d"]) ?>" class="img-fluid" alt="">
             </div>
