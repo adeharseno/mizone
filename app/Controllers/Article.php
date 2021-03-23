@@ -25,6 +25,7 @@ class Article extends BaseController
 
         if ($data['article'] === NULL) return redirect()->to(base_url('404'));
         $data['article'] = json_decode_table($data['article'], default_language());
+        $data['meta_desc'] = $data['article']['meta_desc'];
         return view('article/single', $data);
 	}
 }

@@ -3,7 +3,7 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="description" content=" Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!">
+  <meta name="description" content="<?= (isset($meta_desc) && !empty($meta_desc)) ? $meta_desc : 'Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!' ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
   <link rel="icon" href="images/favicon.ico" type="image/ico">
