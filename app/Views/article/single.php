@@ -1,6 +1,8 @@
 <?= $this->extend('partials/main') ?>
   
 <?= $this->section('content') ?>
+  <style>body {color: #1c4094;}</style>
+
   <div class="section-article-single">
     <div class="container mt-5">
         <div class="row mt-5">
@@ -16,7 +18,9 @@
     <div class="container">
       <div class="row">
           <div class="col">
-              <?= str_replace('../../../', '../', $article['content']) ?>
+              <div class="article-main">
+                <?= str_replace('../../../', '../', $article['content']) ?>
+              </div>
           </div>
       </div>
       <div class="row justify-content-center mt-5">
@@ -37,7 +41,5 @@
       </div>
     </div>
   </div>
-  
-  <style>@media (min-width:767px){.anchor{color:#1c4094}.form-group.has-search input{border:2px solid #1c4094;color:#1c4094}.form-group.has-search input::-webkit-input-placeholder{color:#1c4094}.form-group.has-search input:-ms-input-placeholder{color:#1c4094}.form-group.has-search input::placeholder{color:#1c4094}.texts{color:#fff}.has-search .form-control-feedback:before{background-image:url(../images/new-assets/search-blue.png)}}</style>
 
   <?= $this->endSection() ?>

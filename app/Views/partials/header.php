@@ -5,11 +5,13 @@
   <meta charset="utf-8">
   <meta name="description" content=" Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  
 
   <link rel="icon" href="images/favicon.ico" type="image/ico">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   
 
   <title>Mizone Isotonik + Vitamin B</title>
@@ -41,10 +43,10 @@
   </div>
   <header class="header-main" id="headerMain">
     <div class="row align-items-center">
-      <div class="col-4">
+      <div class="col-3">
         <a href="/"><div class="logo"></div></a>
       </div>
-      <div class="col-8 text-right">
+      <div class="col-9 text-right">
           <div class="burger">
               <div class="menu menu-mobile">
                 <div class="line line-1"></div>
