@@ -85,6 +85,7 @@ class Events extends BaseController {
             $insert["excerpt"] = json_encode($data_post["excerpt"]);
 			$insert["publish_date"] = json_encode($data_post["publish_date"]);
 			$insert["meta_desc"] = json_encode($data_post["meta_desc"]);
+			$insert["meta_title"] = json_encode($data_post["meta_title"]);
 			$insert["image"] = json_encode($this->image_path->get_id_array($data_post["image"]));
 			$insert["flag"] = $data_post["flag"];
 			$insert["updated_at"] = date('Y-m-d H:i:s');

@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   
 
-  <title>Mizone Isotonik + Vitamin B</title>
+  <title><?= (isset($meta_title) && !empty($meta_title)) ? $meta_title : 'Mizone Isotonik + Vitamin B' ?></title>
    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

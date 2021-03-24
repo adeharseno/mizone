@@ -27,6 +27,7 @@ class Event extends BaseController
         if ($data['event'] === NULL) return redirect()->to(base_url('404'));
         $data['event'] = json_decode_table($data['event'], default_language());
         $data['meta_desc'] = $data['event']['meta_desc'];
+        $data['meta_title'] = $data['event']['meta_title'];
         return view('event/single', $data);
 	}
 }
