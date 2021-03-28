@@ -1,7 +1,7 @@
 <?= $this->extend('partials/main') ?>
 
 <?= $this->section('content') ?>
-  <div class="main-menu">
+<div class="main-menu">
     <div class="logo-main-menu"><img src="<?php echo base_url('images/logo.png'); ?>" alt=""></div>
     <a href="javascript:;" id="closeMainmenu"><img src="<?php echo base_url('images/new-assets/close.png'); ?>" alt=""></a>
     <div class="container-mz">
@@ -27,76 +27,30 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
-  <div class="main-slider slideInLeft animated">
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-      <?php if (!empty($value['target_url'])): ?>
-      <a href="<?= $value['target_url'] ?>">
-      <?php endif; ?>
-        <div class="slider-items" style="background-image: url(<?php echo image_get_src($value["bg_d"]) ?>); background-size: cover; background-repeat: no-repeat; background-position: 0 -130px;">
-          <div class="row">
-            <div class="col-12 align-self-center">
-              <img src="<?php echo image_get_src($value["content_d"]) ?>" class="img-fluid" alt="">
-            </div>
-          </div>
-          <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-            <div class="video-box fadeInDown animated">
-              <img src="<?php echo image_get_src($value["video_thumb"]) ?>" alt="">
-              <a href="#videocontent-<?php echo $value['id']; ?>" data-toggle="modal" class="btn-play-vid">
-                <div class="play-btn">
-                  <div class="arrow-play">
-                    <i class="ico-play"></i>
-                  </div>
-                  <p class="mb-0"><?php echo $value['video_title']; ?></p>
+<div class="swiper-container slider-main">
+    <div class="swiper-wrapper">
+        <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
+            <?php if (!empty($value['target_url'])): ?>
+            <a href="<?= $value['target_url'] ?>" class="swiper-slide" style="background-image: url(<?php echo image_get_src($value["bg_d"]) ?>); background-size: cover; background-repeat: no-repeat; background-position: center bottom;">
+            <?php endif; ?>
+                <div class="row">
+                    <div class="col-12 align-self-center">
+                        <img src="<?php echo image_get_src($value["content_d"]) ?>" class="img-fluid" alt="">
+                    </div>
                 </div>
-              </a>
-            </div>
-          <?php endif; ?>
-        </div>
-      <?php if (!empty($value['target_url'])): ?>
-      </a>
-      <?php endif; ?>
-    <?php endforeach; endif; ?>
-  </div>
-
-  <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-    <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-      <!-- Video Modal -->
-      <div class="modal fade modal-video" id="videocontent-<?php echo $value['id']; ?>" role="dialog" aria-labelledby="videocontentTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-body p-0 rounded-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><span class="close-text">CLOSE</span> &times; </span>
-              </button>
-              <?php if( !empty($value["video_url"]) ): ?>
-                <!-- This is for video youtube embed -->
-                 <div class="videoWrapper">
-                     <video id="video1-<?php echo $value['id']; ?>" width="640" height="360">
-                        <source src="<?php echo $value["video_url"]; ?>" type="video/youtube" >
-                    </video>
-                    
-                </div>
-              <?php else: ?>
-                <!-- This is for video file upload -->
-                <div class="videoWrapper">
-                    <video id="video1-<?php echo $value['id']; ?>" width="320" height="240" controls="controls" preload="none" >
-                        <source class="srcv" src="<?php echo image_get_src($value["video"]) ?>" type="video/mp4">
-                    </video>  
-                </div>
-
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Video Modal End -->
-    <?php endif; ?>
-  <?php endforeach; endif; ?>
+            <?php if (!empty($value['target_url'])): ?>
+            </a>
+            <?php endif; ?>
+      <?php endforeach; endif; ?>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
   
-  <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/bg-active-desktop.jpeg'); ?>')">
+<div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/bg-active-desktop.jpeg'); ?>')">
     <img class="product-showcase" src="<?php echo base_url('images/new-assets/MINI-350ML.png'); ?>" alt="">
     <div class="container">
       <div class="row">
@@ -105,17 +59,17 @@
           <h5 class="title-secondary">ACTIV'</h5>
           <h4 class="title-main">LYCHEE LEMON</h4>
           <label>500 ML & 350 ML</label>
-          <p>Keringetan abis beraktivitas penuh dari pagi? <br />
-            Mizone Activ', dengan rasa favorit konsumen: Lychee Lemon, <br />
-            balikin cairan tubuh dan pembentukan energi, bantu badan siap lanjut terus! <br />
-            Kini tersedia dalam 2 ukuran: 500ml & Mini 350ml yang praktis di bawa kemana aja cocok buat kalian yg aktif!</p>
+          <p class="text-custom">Keringetan abis beraktivitas penuh dari pagi? <br />
+            Mizone Activ, dengan rasa favorit konsumen: Lychee Lemon! <br />
+            Bisa balikin cairan tubuh dan pembentukan energi, bantu badan siap lanjut terus! <br />
+            Kini tersedia dalam 2 ukuran 500ml & Mini 350ml yang praktis dibawa ke mana aja, cocok buat kalian yang aktif!</p>
           <a href="javascript:;" class="btn btn-primary menu">Produk Lainnya</a>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
-  <div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">
+<div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -169,9 +123,9 @@
       <?php endforeach; endif; ?>
       </div>
     </div>
-  </div>
+</div>
 
-  <div class="nav-bottom">
+<div class="nav-bottom">
     <ul class="nav nav-pills nav-fill">
     <?php if(isset($products) && count($products) > 0 ): $i=0; foreach($products as $p): $value = json_decode_table($p, default_language()); $i++;?>
       <li class="nav-item">
@@ -181,5 +135,5 @@
       </li>
     <?php endforeach; endif; ?>
     </ul>
-  </div>
+</div>
 <?= $this->endSection() ?>

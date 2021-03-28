@@ -20,7 +20,8 @@ header('X-Frame-Options: DENY');
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
-  <style>body{overflow:auto}.product-showcase{width:160px;position:relative;bottom:0}.section-product{padding:120px 0}.menu-slider,.slide-menu.container-mz{display:none!important}.main-menu.menu-trans.active{left:-20000px!important}@media only screen and (max-width:767px){.menu-container{display:block;position:fixed;background:#003182;top:60px;bottom:0;left:-100%;width:100%;height:100%;z-index:999}.menu-container.active{left:0}.header-main{background:#003182}.menus{width:100%;padding:0}.menu-item{display:block;margin:30px 0}.slick-slide div{width:100%}}.title-secondary{font-size:20px}.title-main{font-size:40px;margin:0}.section-product label{font-size:18px}.section-product p{font-size:16px}</style>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>body{overflow:auto}.product-showcase{width:160px;position:relative;bottom:0}.section-product{padding:120px 0}.menu-slider,.slide-menu.container-mz{display:none!important}.main-menu.menu-trans.active{left:-20000px!important}.swiper-container{width:100%;height:100%}.swiper-slide{text-align:center;font-size:18px;background:#fff;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center}.swiper-container{height:calc(100% - 50px);margin-top:50px}.swiper-slide a{width:100%;height:100%}.menu-mobile{margin-top:0!important}.swiper-pagination-bullet{margin:4px 6px!important}.section-product p{font-family:myriad;font-size:14px!important}@media only screen and (max-width:767px){.menu-container{display:block;position:fixed;background:#003182;top:49px;bottom:0;left:-100%;width:100%;height:100%;z-index:999}.menu-container.active{left:0}.header-main{background:#003182}.menus{width:100%;padding-left:28px}.menu-item{display:block;margin:30px 0}.slick-slide div{width:100%}}.title-secondary{font-size:20px}.title-main{font-size:40px;margin:0}.section-product label{font-size:18px}.section-product p{font-size:16px}</style>
 
   <title>Mizone Isotonik + Vitamin B</title>
 
@@ -95,81 +96,23 @@ header('X-Frame-Options: DENY');
         </div>
       </form>
   </div>
-
-  <div class="main-menu menu-trans normalize">
-    <div class="menu-title">
-      <h3>MIZONE ISOTONIC</h3>
-      <p>OUR PRODUCTS</p>
-    </div>
-    <div class="menu-slider"></div>
-  </div>
-  <div class="main-slider">
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-      <div class="slide-item is-mobile" style="background: url(<?php echo image_get_src($value["bg_m"]) ?>) no-repeat center center / cover;">
-        <div class="row pt-6">
-          <div class="col-lg-4 col-ipd">
-            <div class="text-img sld-1 fadeInDown animated delay-2">
-              <img src="<?php echo image_get_src($value["text_m"]) ?>" class="img-fluid" alt="">
-            </div>
-          </div>
-          <div class="col-lg-8 col-ipd">
-            <div class="object-img fadeInDown animated delay-3">
-              <img src="<?php echo image_get_src($value["content_m"]) ?>" class="img-fluid" alt="">
-            </div>
-          </div>
-        </div>
-        <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-          <div class="video-box fadeInUp animated delay-4">
-            <a href="#videocontent-<?php echo $value['id']; ?>" data-toggle="modal">
-              <img src="<?php echo image_get_src($value["video_thumb"]) ?>" alt="">
-              <div class="play-btn">
-                <div class="arrow-play">
-                  <i class="ico-play"></i>
-                </div>
-                <p class="mb-0"><?php echo $value['video_title']; ?></p>
-              </div>
-            </a>
-          </div>
-        <?php endif; ?>
-      </div>
-    <?php endforeach; endif; ?>
-  </div>
   
-    <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
-    <?php if( !empty($value['video']) || !empty($value["video_url"]) ):?>
-      <!-- Video Modal -->
-      <div class="modal fade modal-video" id="videocontent-<?php echo $value['id']; ?>" role="dialog" aria-labelledby="videocontentTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-body p-0 rounded-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><span class="close-text">CLOSE</span> &times; </span>
-              </button>
-              <?php if( !empty($value["video_url"]) ): ?>
-                <!-- This is for video youtube embed -->
-                 <div class="videoWrapper">
-                     <video id="video1-<?php echo $value['id']; ?>" width="640" height="360">
-                        <source src="<?php echo $value["video_url"]; ?>" type="video/youtube" >
-                    </video>
-                    
-                </div>
-              <?php else: ?>
-                <!-- This is for video file upload -->
-                <div class="videoWrapper">
-                    <video id="video1-<?php echo $value['id']; ?>" width="320" height="240" controls="controls" preload="none" >
-                        <source class="srcv" src="<?php echo image_get_src($value["video"]) ?>" type="video/mp4">
-                    </video>  
-                </div>
-
-              <?php endif; ?>
-            </div>
-          </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <?php if(isset($sliders) && count($sliders) > 0 ): foreach($sliders as $s): $value = json_decode_table($s, default_language()); ?>
+        <div class="swiper-slide" style="background: url(<?php echo image_get_src($value["bg_m"]) ?>) no-repeat center center / cover;">
+            <?php if (!empty($value['target_url'])): ?>
+                <a href="<?= $value['target_url'] ?>">
+            <?php endif; ?>
+            <?php if (!empty($value['target_url'])): ?>
+                </a>
+            <?php endif; ?>
         </div>
-      </div>
-      <!-- Video Modal End -->
-    <?php endif; ?>
-  <?php endforeach; endif; ?>
+        <?php endforeach; endif; ?>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
   
   <div class="section-product" style="background-image: url('<?php echo base_url('images/new-assets/ph-asnawi-product.jpg'); ?>')">
     <div class="container">
@@ -182,9 +125,9 @@ header('X-Frame-Options: DENY');
             <h4 class="title-main">LYCHEE LEMON</h4>
             <label>500 ML & 350 ML</label>
             <p>Keringetan abis beraktivitas penuh dari pagi?
-            Mizone Activ', dengan rasa favorit konsumen: Lychee Lemon,
-            balikin cairan tubuh dan pembentukan energi, bantu badan siap lanjut terus!
-            Kini tersedia dalam 2 ukuran: 500ml & Mini 350ml yang praktis di bawa kemana aja cocok buat kalian yg aktif!</p>
+            Mizone Activ, dengan rasa favorit konsumen: Lychee Lemon!
+            Bisa balikin cairan tubuh dan pembentukan energi, bantu badan siap lanjut terus!
+            Kini tersedia dalam 2 ukuran 500ml & Mini 350ml yang praktis dibawa ke mana aja, cocok buat kalian yang aktif!</p>
             <a href="<?= base_url('produk') ?>" class="btn btn-primary products">Produk Lainnya</a>
          </div>
       </div>
@@ -274,7 +217,6 @@ header('X-Frame-Options: DENY');
       </div>
     </div>
   </footer>
-
   
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -282,8 +224,21 @@ header('X-Frame-Options: DENY');
   <script src="<?php echo base_url('js/popper.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/main.min.js'); ?>"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      }
+    });
     $('.trigger-menu').on('click', function() {
         $('.menu-container').toggleClass('active');
     })

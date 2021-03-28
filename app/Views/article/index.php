@@ -2,9 +2,9 @@
 
 <?= $this->section('content') ?>
   <div class="section-article" style="background-image: url('<?php echo base_url('images/new-assets/bg-article.jpg'); ?>');">
-    <div class="container mt-5">
-      <div class="row mt-5">
-        <div class="col mt-5">
+    <div class="container mt-0 mt-lg-5">
+      <div class="row mt-0 mt-lg-5">
+        <div class="col mt-3 mt-lg-5">
           <h5 class="title-secondary mb-4">Artikel</h5>
         </div>
       </div>

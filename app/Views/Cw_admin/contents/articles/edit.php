@@ -118,6 +118,13 @@
                                 <?php endif ?>
                             </div>
                             <div class="form-group">
+                                <label>Meta Title</label>
+                                <input class="form-control" type="text" name="meta_title[<?php echo $lang_key ?>]" value="<?php echo (set_value('meta_title['.$lang_key.']'))?set_value('meta_title['.$lang_key.']'):(isset($row["meta_title"][$lang_key]) ? $row["meta_title"][$lang_key] : "") ?>">
+                                <?php if (\Config\Services::validation()->getError('meta_title['.$lang_key.']')): ?>
+                                    <label class="error"><?php echo \Config\Services::validation()->getError('meta_title['.$lang_key.']'); ?></label>
+                                <?php endif ?>
+                            </div>
+                            <div class="form-group">
                                 <label>Meta Description</label>
                                 <textarea class="form-control tinymce" rows="10" name="meta_desc[<?php echo $lang_key ?>]"><?php echo (set_value('meta_desc['.$lang_key.']'))?set_value('meta_desc['.$lang_key.']'):(isset($row["meta_desc"][$lang_key]) ? $row["meta_desc"][$lang_key] : "") ?></textarea>  
                                 <?php if (\Config\Services::validation()->getError('meta_desc['.$lang_key.']')): ?>

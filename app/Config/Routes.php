@@ -33,10 +33,10 @@ $routes->setAutoRoute(true);
 // $routes->post('cw_admin/account/edit', 'Cw_admin/Account::save');
 $routes->get('/', 'Home::index');
 $routes->get('activ', 'Home::activ');
-$routes->get('products', 'Home::tab');
-$routes->get('move-on', 'Home::move_on');
-$routes->get('break', 'Home::break_free');
-$routes->get('mood', 'Home::mood_up');
+// $routes->get('products', 'Home::tab');
+// $routes->get('move-on', 'Home::move_on');
+// $routes->get('break', 'Home::break_free');
+// $routes->get('mood', 'Home::mood_up');
 $routes->get('articles', 'Article::index');
 $routes->get('article/(:any)', 'Article::single/$1');
 $routes->get('faq', 'Faq::index');
@@ -44,9 +44,10 @@ $routes->get('produk', 'Produk::index');
 $routes->get('team-mizone', 'Team::index');
 $routes->get('events', 'Event::index');
 $routes->get('event/(:any)', 'Event::single/$1');
-$routes->get('mood', 'Home::mood_up');
-$routes->get('product/(:any)', 'Home::product/$1');
-$routes->get('products-all', 'Home::product_all');
+$routes->get('kebijakan-privasi', 'Privacy::index');
+// $routes->get('mood', 'Home::mood_up');
+// $routes->get('product/(:any)', 'Home::product/$1');
+// $routes->get('products-all', 'Home::product_all');
 $routes->group('api', function($routes)
 {
     $routes->post('contact', 'Contact::submit');

@@ -25,12 +25,10 @@
     </div>
   </footer>
   <div class="popup-cookie" style="display: none;">
-      Situs web ini menggunakan cookie untuk memastikan Anda mendapatkan pengalaman terbaik di situs web kami. Pelajari lebih lanjut
-      <a href="#" id="agreeCookies">Ok</a>
+      Danone uses cookies on this website. With your consent we will use them to measure and analyze usage of the website (analytical cookies), to tailor it to your interests (personalization cookies), and to present you relevant advertising and information (targeting cookies). For more information please read the <a href="<?= base_url('kebijakan-privasi') ?>">cookie statement.</a>
+      <a href="#" id="agreeCookies">Accept all cookies</a>
   </div>
   <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <!--<script src="<?php //echo base_url('js/jquery-3.5.1.min.js'); ?>"></script>-->
   <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -40,9 +38,25 @@
   <script src="<?php echo base_url('js/main.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/customs.js'); ?>"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullview/dist/fullview.min.js"></script>
 
   <script>
-    var swiper = new Swiper('.swiper-container', {
+    var mainSlider = new Swiper('.slider-main', {
+      cssMode: true,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      simulateTouch: false,
+      mousewheel: true,
+      keyboard: true,
+    });
+    var productSlider = new Swiper('.slider-product', {
         direction: 'vertical',
         slidesPerView: 1,
         mousewheel: true,
@@ -50,6 +64,16 @@
             el: '.swiper-pagination',
             clickable: true,
         },
+    });
+    var teamSlider = new Swiper('.slider-team', {
+        cssMode: true,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        mousewheel: true,
+        keyboard: true,
     });
     if ($(window).width() < 767) {
         $('.has-submenu').on('click', function() {
@@ -63,10 +87,30 @@
     $('.burger').on('click', function() {
         $('.menu-container').toggleClass('active');
     });
-    $('.trigger-hiddens').on('click', function() {
-        $('.hiddens').toggleClass('active');
-        $('.trigger-hiddens').toggleClass('active');
-    })
+    $('.swiper-slide .slider-team-trigger').on('click', function() {
+        $(this).fadeOut();
+        $(this).parent().addClass('active');
+        $('.swiper-button-prev, .swiper-button-next').css({
+            'cursor': 'none',
+            'pointer-events': 'none',
+            'opacity': '0.2'
+        });
+    });
+    $('.close-trigger').on('click', function(){
+       $(this).parent().parent().removeClass('active'); 
+       $('.slider-team-trigger').fadeIn();
+       $('.swiper-button-prev, .swiper-button-next').css({
+            'cursor': 'pointer',
+            'pointer-events': 'auto',
+            'opacity': '1'
+        });
+    });
+    $('#fullview .fullview--trigger').on('click', function() {
+        $(this).parent().addClass('show'); 
+    });
+    $('.fullview--close-trigger').on('click', function() {
+        $(this).parent().parent().removeClass('show'); 
+    });
     
     var url = window.location.href;
     // Get DIV
@@ -125,6 +169,24 @@
 				}
 			})
     });
+    $("#fullview").fullView({
+        //Navigation
+        navbar: "#triggerTop",
+        dots: true,
+        dotsPosition: 'right',
+
+        //Scrolling
+        easing: 'swing',
+        // backToTop: true,
+
+        // Accessibility
+        keyboardScrolling: true,
+
+        // Callback
+        onViewChange: function (currentView) {
+            // console.log(currentView)
+        }
+    })
   </script>
 </body>
 </html>

@@ -3,18 +3,16 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="description" content=" Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!">
+  <meta name="description" content="<?= (isset($meta_desc) && !empty($meta_desc)) ? $meta_desc : 'Minuman Isotonik + Vitamin B3 B6 B12 bantu badan siap lanjut terus!' ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  
 
   <link rel="icon" href="images/favicon.ico" type="image/ico">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  
 
-  <title>Mizone Isotonik + Vitamin B</title>
+  <title><?= (isset($meta_title) && !empty($meta_title)) ? $meta_title : 'Mizone Isotonik + Vitamin B' ?></title>
    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -35,7 +33,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-  <div class="loader d-none">
+  <div class="loader">
     <div class="loader-content">
       <i class="spinner"></i>
       <p>LOADING</p>
