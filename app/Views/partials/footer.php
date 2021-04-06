@@ -1,4 +1,5 @@
   <a href="https://www.tokopedia.com/aqua-store/etalase/mizone" id="clickme" target="_blank">Beli Sekarang</a>
+  <a data-fancybox data-src="#hidden-content" href="javascript:;" id="contactus">Hubungi Kami</a>
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -24,6 +25,53 @@
       </div>
     </div>
   </footer>
+  <div style="display: none;" class="popup-form" id="hidden-content">
+    <div class="row">
+        <div class="col-12 col-md-4 popup-form_left">
+            <label>
+                <span>
+                    <img src="<?php echo base_url('images/logo.png'); ?>" />
+                    <h4>0800-15-88888</h4>
+                    <p>Toll Free</p>
+                </span>
+            </label>
+        </div>
+        <div class="col-12 col-md-8">
+            <form method="" id="formContact" class="py-4">
+                <div class="mb-3">
+                      <input type="text" name="nama" class="form-control" placeholder="Nama" require>
+                  </div>
+                  <div class="mb-3">
+                      <input type="email" name="email" class="form-control" placeholder="Email" require>
+                  </div>
+                  <div class="mb-3">
+                      <input type="text" name="telp" class="form-control" placeholder="No Telp" require>
+                  </div>
+                  <div class="mb-3">
+                      <textarea class="form-control" name="alamat" rows="1" placeholder="Alamat" require></textarea>
+                  </div>
+                  <div class="mb-3">
+                      <select class="form-select" name="kategori" require>
+                        <option value="">Kategori</option>
+                        <option value="general">General</option>
+                        <option value="business">Business</option>
+                        <option value="customer">Customer</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                      <textarea class="form-control" name="pesan" rows="1" placeholder="Pesan" require></textarea>
+                  </div>
+                  <div class="mb-4">
+                      <label class="label-dropzone">Lampiran</label>
+                      <div id="fileDropzone" name="lampiran" class="fallback dropzone" require></div>
+                  </div>
+                  <div class="mb-3">
+                      <input type="submit" class="btn btn-primary"  value="Kirim Pesan">
+                  </div>
+            </form>
+        </div>
+    </div>
+  </div>
   <div class="popup-cookie" style="display: none;">
       Danone uses cookies on this website. With your consent we will use them to measure and analyze usage of the website (analytical cookies), to tailor it to your interests (personalization cookies), and to present you relevant advertising and information (targeting cookies). For more information please read the <a href="<?= base_url('kebijakan-privasi') ?>">cookie statement.</a>
       <a href="#" id="agreeCookies">Accept all cookies</a>
@@ -39,8 +87,25 @@
   <script src="<?php echo base_url('js/customs.js'); ?>"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullview/dist/fullview.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
   <script>
+    $( "#formContact" ).validate({
+      rules: {
+        field: {
+          required: true
+        }
+      }
+    });
+    $('[data-fancybox]').fancybox();
+    var myDropzone = new Dropzone("div#fileDropzone", {
+        url: "/file/post"
+    });
+    $("div#fileDropzone").dropzone({
+        url: "/file/post"
+    });
     var mainSlider = new Swiper('.slider-main', {
       cssMode: true,
       loop: true,

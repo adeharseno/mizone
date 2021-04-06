@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="<?php echo base_url('css/all.min.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('css/customs.css'); ?>">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css" />
 
   <title><?= (isset($meta_title) && !empty($meta_title)) ? $meta_title : 'Mizone Isotonik + Vitamin B' ?></title>
    <!-- Google Tag Manager -->
