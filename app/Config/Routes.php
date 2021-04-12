@@ -51,6 +51,7 @@ $routes->get('kebijakan-privasi', 'Privacy::index');
 $routes->group('api', function($routes)
 {
     $routes->post('contact', 'Contact::submit');
+    $routes->post('form', 'Forms::submit');
 });
 
 /**

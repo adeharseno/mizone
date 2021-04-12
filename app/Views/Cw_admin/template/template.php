@@ -72,6 +72,7 @@
                                     <li><a href="<?= base_url('Cw_admin/articles') ?>">Articles</a></li>
                                     <li><a href="<?= base_url('Cw_admin/events') ?>">Events</a></li>
                                     <li><a href="<?= base_url('Cw_admin/contacts') ?>">Contacts</a></li>
+                                    <li><a href="<?= base_url('Cw_admin/forms') ?>">Forms</a></li>
                                     <!-- <li><a href="video_section">Video</a></li> -->
                                     <!-- <li><a href="sosmed">Social Media</a></li> -->
                                 </ul>

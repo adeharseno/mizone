@@ -37,21 +37,21 @@
             </label>
         </div>
         <div class="col-12 col-md-8">
-            <form method="" id="formContact" class="py-4">
+            <form action="#" id="submitForm" method="POST" class="py-4" enctype="multipart/form-data">
                 <div class="mb-3">
-                      <input type="text" name="nama" class="form-control" placeholder="Nama" require>
+                      <input type="text" name="name" class="form-control" placeholder="Nama" required>
                   </div>
                   <div class="mb-3">
-                      <input type="email" name="email" class="form-control" placeholder="Email" require>
+                      <input type="email" name="email" class="form-control" placeholder="Email" required>
                   </div>
                   <div class="mb-3">
-                      <input type="text" name="telp" class="form-control" placeholder="No Telp" require>
+                      <input type="text" name="phone" class="form-control" placeholder="No Telp" required>
                   </div>
                   <div class="mb-3">
-                      <textarea class="form-control" name="alamat" rows="1" placeholder="Alamat" require></textarea>
+                      <textarea class="form-control" name="address" rows="1" placeholder="Alamat" required></textarea>
                   </div>
                   <div class="mb-3">
-                      <select class="form-select" name="kategori" require>
+                      <select class="form-select" name="category" required>
                         <option value="">Kategori</option>
                         <option value="general">General</option>
                         <option value="business">Business</option>
@@ -59,14 +59,14 @@
                       </select>
                   </div>
                   <div class="mb-3">
-                      <textarea class="form-control" name="pesan" rows="1" placeholder="Pesan" require></textarea>
+                      <textarea class="form-control" name="message" rows="1" placeholder="Pesan" required></textarea>
                   </div>
                   <div class="mb-4">
                       <label class="label-dropzone">Lampiran</label>
-                      <div id="fileDropzone" name="lampiran" class="fallback dropzone" require></div>
+                      <input type="file" name="file" accept="image/*">
                   </div>
                   <div class="mb-3">
-                      <input type="submit" class="btn btn-primary"  value="Kirim Pesan">
+                      <input type="submit" class="btn btn-primary" id="btnSubmitForm" value="Kirim Pesan">
                   </div>
             </form>
         </div>
@@ -76,6 +76,8 @@
       Danone uses cookies on this website. With your consent we will use them to measure and analyze usage of the website (analytical cookies), to tailor it to your interests (personalization cookies), and to present you relevant advertising and information (targeting cookies). For more information please read the <a href="<?= base_url('kebijakan-privasi') ?>">cookie statement.</a>
       <a href="#" id="agreeCookies">Accept all cookies</a>
   </div>
+
+  <input type="hidden" id="submitFormURL" value="<?= base_url('/api/form') ?>">
   <!-- Optional JavaScript -->
   <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -99,13 +101,13 @@
         }
       }
     });
-    $('[data-fancybox]').fancybox();
-    var myDropzone = new Dropzone("div#fileDropzone", {
-        url: "/file/post"
-    });
-    $("div#fileDropzone").dropzone({
-        url: "/file/post"
-    });
+    // $('[data-fancybox]').fancybox();
+    // var myDropzone = new Dropzone("div#fileDropzone", {
+    //     url: "/file/post"
+    // });
+    // $("div#fileDropzone").dropzone({
+    //     url: "/file/post"
+    // });
     var mainSlider = new Swiper('.slider-main', {
       cssMode: true,
       loop: true,
@@ -229,6 +231,33 @@
             alert('data kamu berhasil terkirim')
 					} else {
             $("#btnContact").removeAttr("disabled", "disabled");
+            alert('gagal mengirim data kamu, silahkan coba kembali')
+					}
+				}
+			})
+    });
+
+    $(document).on("submit", "#submitForm", function(e) {
+      e.preventDefault();
+      $("#btnSubmitForm").attr("disabled", "disabled");
+
+			$.ajax({
+				type: 'POST',
+				url: $('#submitFormURL').val(),
+				data: new FormData(this),
+				dataType: 'JSON',
+        processData: false,
+        contentType: false,
+				success: function(data) {
+					if (data.status === 200) {
+            $("#btnSubmitForm").removeAttr("disabled", "disabled");
+            $('#submitForm').trigger("reset");
+            $('.fancybox-close-small').trigger("click");
+            alert('data kamu berhasil terkirim')
+					} else {
+            $('.fancybox-close-small').trigger("click");
+            $('#submitForm').trigger("reset");
+            $("#btnSubmitForm").removeAttr("disabled", "disabled");
             alert('gagal mengirim data kamu, silahkan coba kembali')
 					}
 				}
