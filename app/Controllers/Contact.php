@@ -29,7 +29,7 @@ class Contact extends ResourceController
         } else {
             $email = \Config\Services::email();
 
-            $email->setTo('alfinsocial@gmail.com');
+            $email->setTo(['alfinsocial@gmail.com', 'warisvito@gmail.com']);
             $email->setFrom('info@mizone.co.id', 'Admin Mizone');
             $email->setSubject('Pertanyaan baru');
             $email->setMessage('Halo Admin,<br>Berikut terdapat data user baru yang mempunyai pertanyaan terkait Mizone: <br>Nama: '.$data['name'].'<br>Email: '.$data['email'].'<br>Pertanyaan: '.$data['question']);
